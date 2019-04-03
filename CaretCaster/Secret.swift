@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct Keys {
+  
+  let listenApi = "key"
+  
+}

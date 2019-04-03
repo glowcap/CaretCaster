@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		4A3B1AF622541A5A00C7A8EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1AF522541A5A00C7A8EE /* AppDelegate.swift */; };
-		4A3B1AF822541A5A00C7A8EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1AF722541A5A00C7A8EE /* ViewController.swift */; };
-		4A3B1AFB22541A5A00C7A8EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A3B1AF922541A5A00C7A8EE /* Main.storyboard */; };
+		4A3B1AF822541A5A00C7A8EE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1AF722541A5A00C7A8EE /* HomeViewController.swift */; };
 		4A3B1AFE22541A5A00C7A8EE /* CaretCaster.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1AFC22541A5A00C7A8EE /* CaretCaster.xcdatamodeld */; };
 		4A3B1B0022541A5C00C7A8EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A3B1AFF22541A5C00C7A8EE /* Assets.xcassets */; };
 		4A3B1B0322541A5C00C7A8EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A3B1B0122541A5C00C7A8EE /* LaunchScreen.storyboard */; };
 		4A3B1B0E22541A5C00C7A8EE /* CaretCasterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1B0D22541A5C00C7A8EE /* CaretCasterTests.swift */; };
+		4A3B1B192254201B00C7A8EE /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1B182254201B00C7A8EE /* Secret.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,8 +29,7 @@
 /* Begin PBXFileReference section */
 		4A3B1AF222541A5A00C7A8EE /* CaretCaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaretCaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3B1AF522541A5A00C7A8EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4A3B1AF722541A5A00C7A8EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4A3B1AFA22541A5A00C7A8EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4A3B1AF722541A5A00C7A8EE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4A3B1AFD22541A5A00C7A8EE /* CaretCaster.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CaretCaster.xcdatamodel; sourceTree = "<group>"; };
 		4A3B1AFF22541A5C00C7A8EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A3B1B0222541A5C00C7A8EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +37,7 @@
 		4A3B1B0922541A5C00C7A8EE /* CaretCasterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaretCasterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3B1B0D22541A5C00C7A8EE /* CaretCasterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretCasterTests.swift; sourceTree = "<group>"; };
 		4A3B1B0F22541A5C00C7A8EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A3B1B182254201B00C7A8EE /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				4A3B1AF522541A5A00C7A8EE /* AppDelegate.swift */,
-				4A3B1AF722541A5A00C7A8EE /* ViewController.swift */,
-				4A3B1AF922541A5A00C7A8EE /* Main.storyboard */,
+				4A3B1AF722541A5A00C7A8EE /* HomeViewController.swift */,
+				4A3B1B182254201B00C7A8EE /* Secret.swift */,
 				4A3B1AFF22541A5C00C7A8EE /* Assets.xcassets */,
 				4A3B1B0122541A5C00C7A8EE /* LaunchScreen.storyboard */,
 				4A3B1B0422541A5C00C7A8EE /* Info.plist */,
@@ -182,7 +182,6 @@
 			files = (
 				4A3B1B0322541A5C00C7A8EE /* LaunchScreen.storyboard in Resources */,
 				4A3B1B0022541A5C00C7A8EE /* Assets.xcassets in Resources */,
-				4A3B1AFB22541A5A00C7A8EE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +199,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A3B1AF822541A5A00C7A8EE /* ViewController.swift in Sources */,
+				4A3B1AF822541A5A00C7A8EE /* HomeViewController.swift in Sources */,
+				4A3B1B192254201B00C7A8EE /* Secret.swift in Sources */,
 				4A3B1AF622541A5A00C7A8EE /* AppDelegate.swift in Sources */,
 				4A3B1AFE22541A5A00C7A8EE /* CaretCaster.xcdatamodeld in Sources */,
 			);
@@ -225,14 +225,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4A3B1AF922541A5A00C7A8EE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4A3B1AFA22541A5A00C7A8EE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4A3B1B0122541A5C00C7A8EE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -367,6 +359,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NT4ZPH7Z6M;
 				INFOPLIST_FILE = CaretCaster/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -374,7 +367,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = daymein.gregorio.CaretCaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -385,6 +378,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NT4ZPH7Z6M;
 				INFOPLIST_FILE = CaretCaster/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -392,7 +386,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = daymein.gregorio.CaretCaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
