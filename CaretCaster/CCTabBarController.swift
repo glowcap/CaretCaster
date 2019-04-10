@@ -8,10 +8,21 @@
 
 import UIKit
 
+protocol CCTabButtonDelegate: AnyObject {
+  func tapped(isPlaying: Bool)
+}
+
 final class CCTabBarController: UITabBarController {
 
   let mainButton = UIButton()
   let mainBtnSize = CGFloat(UIScreen.main.bounds.width * 0.18)
+  
+  var buttonDelegate: CCTabButtonDelegate?
+  var isPlaying = false {
+    willSet {
+      mainButton.backgroundColor = newValue ? .green : .red
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -20,19 +31,25 @@ final class CCTabBarController: UITabBarController {
   }
   
   private func configureMainButton() {
-    mainButton.backgroundColor = .purple
+    mainButton.backgroundColor = .red
     mainButton.layer.cornerRadius = mainBtnSize / 2
     mainButton.clipsToBounds = true
+    mainButton.addTarget(self, action: #selector(tapped), for: .touchUpInside)
   }
   
   private func layoutMainButton() {
     tabBar.addSubview(mainButton)
     mainButton.translatesAutoresizingMaskIntoConstraints = false
     mainButton.centerXAnchor.constraint(equalTo: tabBar.centerXAnchor).isActive = true
-    mainButton.centerYAnchor.constraint(equalTo: tabBar.centerYAnchor, constant: -20).isActive = true
+    mainButton.topAnchor.constraint(equalTo: tabBar.topAnchor, constant: -21).isActive = true
     mainButton.widthAnchor.constraint(equalToConstant: mainBtnSize).isActive = true
     mainButton.heightAnchor.constraint(equalToConstant: mainBtnSize).isActive = true
   }
   
+  @objc func tapped() {
+    isPlaying = !isPlaying
+    buttonDelegate?.tapped(isPlaying: isPlaying)
+    print("button tapped - isPlaying: \(isPlaying)")
+  }
   
 }
