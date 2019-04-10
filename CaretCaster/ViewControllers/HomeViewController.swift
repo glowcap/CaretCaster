@@ -19,18 +19,18 @@ class HomeViewController: UIViewController {
     
     let networking = Networking()
     
-    if let request = networking.generateBestOfURL(genreId: 138, region: "us", isSafeMode: false) {
-      networking.fire(request: request) { data, error in
-        guard error == nil else { return }
-        guard let data = data,
-              let bestOf: BestOfGenre = networking.parse(data: data, modelType: ParsingType.bestOf)
-         else { return }
-        print(bestOf.name)
-        print(bestOf.total)
-        guard bestOf.podcasts.count > 0 else { return }
-        print(bestOf.podcasts[0].title)
-      }
-    }
+//    if let request = networking.generateBestOfURL(genreId: 138, region: "us", isSafeMode: false) {
+//      networking.fire(request: request) { data, error in
+//        guard error == nil else { return }
+//        guard let data = data,
+//              let bestOf: BestOfGenre = networking.parse(data: data, modelType: ParsingType.bestOf)
+//         else { return }
+//        print(bestOf.name)
+//        print(bestOf.total)
+//        guard bestOf.podcasts.count > 0 else { return }
+//        print(bestOf.podcasts[0].title)
+//      }
+//    }
     
   }
 

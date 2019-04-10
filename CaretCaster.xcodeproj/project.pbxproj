@@ -18,6 +18,7 @@
 		4A3B1B1D22556FFA00C7A8EE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1B1C22556FFA00C7A8EE /* Helpers.swift */; };
 		4A3B1B1F22557DDA00C7A8EE /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1B1E22557DDA00C7A8EE /* Networking.swift */; };
 		4AE7DAB8225A51DF008DF19D /* ListenSearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7DAB7225A51DF008DF19D /* ListenSearchModels.swift */; };
+		4AE7DABE225D90DB008DF19D /* CCTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7DABD225D90DB008DF19D /* CCTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		4A3B1B1C22556FFA00C7A8EE /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		4A3B1B1E22557DDA00C7A8EE /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		4AE7DAB7225A51DF008DF19D /* ListenSearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenSearchModels.swift; sourceTree = "<group>"; };
+		4AE7DABD225D90DB008DF19D /* CCTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				4A3B1AF522541A5A00C7A8EE /* AppDelegate.swift */,
+				4AE7DABD225D90DB008DF19D /* CCTabBarController.swift */,
 				4AE7DABA225AFD91008DF19D /* ViewControllers */,
 				4AE7DAB9225AFD82008DF19D /* Models */,
 				4AE7DABC225AFDEC008DF19D /* Networking */,
@@ -250,6 +253,7 @@
 				4AE7DAB8225A51DF008DF19D /* ListenSearchModels.swift in Sources */,
 				4A3B1B1B225455B300C7A8EE /* ListenModels.swift in Sources */,
 				4A3B1AFE22541A5A00C7A8EE /* CaretCaster.xcdatamodeld in Sources */,
+				4AE7DABE225D90DB008DF19D /* CCTabBarController.swift in Sources */,
 				4A3B1B1F22557DDA00C7A8EE /* Networking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -29,22 +29,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     nav2.viewControllers = [second]
     nav2.tabBarItem = UITabBarItem(title: "Casts", image: UIImage(named:"IconNav2"), tag: 2)
     
-    let nav3 = UINavigationController()
     let third = UIViewController()
-    third.view.backgroundColor = .blue
-    nav3.viewControllers = [third]
-    nav3.tabBarItem = UITabBarItem(title: "Browse", image: UIImage(named:"IconNav3"), tag: 3)
+    third.view.backgroundColor = .white
+    third.tabBarItem = UITabBarItem(title: "", image: UIImage(), tag: 3)
+    third.tabBarItem.isEnabled = false
     
     let nav4 = UINavigationController()
     let fourth = UIViewController()
-    fourth.view.backgroundColor = .yellow
+    fourth.view.backgroundColor = .blue
     nav4.viewControllers = [fourth]
-    nav4.tabBarItem = UITabBarItem(title: "TBA", image: UIImage(named:"IconNav3"), tag: 4)
+    nav4.tabBarItem = UITabBarItem(title: "Browse", image: UIImage(named:"IconNav4"), tag: 4)
     
-    let tabs = UITabBarController()
-    tabs.viewControllers = [nav1, nav2, nav3, nav4]
+    let nav5 = UINavigationController()
+    let fifth = UIViewController()
+    fifth.view.backgroundColor = .yellow
+    nav5.viewControllers = [fifth]
+    nav5.tabBarItem = UITabBarItem(title: "TBA", image: UIImage(named:"IconNav5"), tag: 5)
     
-    self.window?.rootViewController = tabs
+    let tabBarVC = CCTabBarController()
+    tabBarVC.viewControllers = [nav1, nav2, third, nav4, nav5]
+    
+    self.window?.rootViewController = tabBarVC
     self.window?.makeKeyAndVisible()
     
     return true
