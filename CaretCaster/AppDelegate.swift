@@ -27,16 +27,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let second = UIViewController()
     second.view.backgroundColor = .red
     nav2.viewControllers = [second]
-    nav2.tabBarItem = UITabBarItem(title: "Nav2", image: UIImage(named:"IconNav2"), tag: 1)
+    nav2.tabBarItem = UITabBarItem(title: "Casts", image: UIImage(named:"IconNav2"), tag: 1)
     
     let nav3 = UINavigationController()
     let third = UIViewController()
     third.view.backgroundColor = .blue
     nav3.viewControllers = [third]
-    nav3.tabBarItem = UITabBarItem(title: "Nav3", image: UIImage(named:"IconNav3"), tag: 1)
+    nav3.tabBarItem = UITabBarItem(title: "Browse", image: UIImage(named:"IconNav3"), tag: 1)
+    
+    let nav4 = UINavigationController()
+    let fourth = UIViewController()
+    fourth.view.backgroundColor = .yellow
+    nav3.viewControllers = [fourth]
+    nav3.tabBarItem = UITabBarItem(title: "Other", image: UIImage(named:"IconNav3"), tag: 1)
     
     let tabs = UITabBarController()
-    tabs.viewControllers = [nav1, nav2, nav3]
+    tabs.viewControllers = [nav1, nav2, nav3, nav4]
     
     self.window?.rootViewController = tabs
     self.window?.makeKeyAndVisible()
