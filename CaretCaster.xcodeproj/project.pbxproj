@@ -14,6 +14,10 @@
 		4A3B1B0322541A5C00C7A8EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A3B1B0122541A5C00C7A8EE /* LaunchScreen.storyboard */; };
 		4A3B1B0E22541A5C00C7A8EE /* CaretCasterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1B0D22541A5C00C7A8EE /* CaretCasterTests.swift */; };
 		4A3B1B192254201B00C7A8EE /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1B182254201B00C7A8EE /* Secret.swift */; };
+		4A3B1B1B225455B300C7A8EE /* ListenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1B1A225455B300C7A8EE /* ListenModels.swift */; };
+		4A3B1B1D22556FFA00C7A8EE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1B1C22556FFA00C7A8EE /* Helpers.swift */; };
+		4A3B1B1F22557DDA00C7A8EE /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1B1E22557DDA00C7A8EE /* Networking.swift */; };
+		4AE7DAB8225A51DF008DF19D /* ListenSearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7DAB7225A51DF008DF19D /* ListenSearchModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,10 @@
 		4A3B1B0D22541A5C00C7A8EE /* CaretCasterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretCasterTests.swift; sourceTree = "<group>"; };
 		4A3B1B0F22541A5C00C7A8EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A3B1B182254201B00C7A8EE /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
+		4A3B1B1A225455B300C7A8EE /* ListenModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenModels.swift; sourceTree = "<group>"; };
+		4A3B1B1C22556FFA00C7A8EE /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		4A3B1B1E22557DDA00C7A8EE /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		4AE7DAB7225A51DF008DF19D /* ListenSearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenSearchModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +88,10 @@
 			isa = PBXGroup;
 			children = (
 				4A3B1AF522541A5A00C7A8EE /* AppDelegate.swift */,
-				4A3B1AF722541A5A00C7A8EE /* HomeViewController.swift */,
-				4A3B1B182254201B00C7A8EE /* Secret.swift */,
+				4AE7DABA225AFD91008DF19D /* ViewControllers */,
+				4AE7DAB9225AFD82008DF19D /* Models */,
+				4AE7DABC225AFDEC008DF19D /* Networking */,
+				4AE7DABB225AFDE2008DF19D /* Helpers */,
 				4A3B1AFF22541A5C00C7A8EE /* Assets.xcassets */,
 				4A3B1B0122541A5C00C7A8EE /* LaunchScreen.storyboard */,
 				4A3B1B0422541A5C00C7A8EE /* Info.plist */,
@@ -97,6 +107,40 @@
 				4A3B1B0F22541A5C00C7A8EE /* Info.plist */,
 			);
 			path = CaretCasterTests;
+			sourceTree = "<group>";
+		};
+		4AE7DAB9225AFD82008DF19D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4A3B1B1A225455B300C7A8EE /* ListenModels.swift */,
+				4AE7DAB7225A51DF008DF19D /* ListenSearchModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4AE7DABA225AFD91008DF19D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4A3B1AF722541A5A00C7A8EE /* HomeViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4AE7DABB225AFDE2008DF19D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4A3B1B182254201B00C7A8EE /* Secret.swift */,
+				4A3B1B1C22556FFA00C7A8EE /* Helpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		4AE7DABC225AFDEC008DF19D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				4A3B1B1E22557DDA00C7A8EE /* Networking.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,9 +244,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A3B1AF822541A5A00C7A8EE /* HomeViewController.swift in Sources */,
+				4A3B1B1D22556FFA00C7A8EE /* Helpers.swift in Sources */,
 				4A3B1B192254201B00C7A8EE /* Secret.swift in Sources */,
 				4A3B1AF622541A5A00C7A8EE /* AppDelegate.swift in Sources */,
+				4AE7DAB8225A51DF008DF19D /* ListenSearchModels.swift in Sources */,
+				4A3B1B1B225455B300C7A8EE /* ListenModels.swift in Sources */,
 				4A3B1AFE22541A5A00C7A8EE /* CaretCaster.xcdatamodeld in Sources */,
+				4A3B1B1F22557DDA00C7A8EE /* Networking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
