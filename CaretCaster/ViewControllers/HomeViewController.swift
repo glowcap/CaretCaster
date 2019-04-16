@@ -12,7 +12,8 @@ class HomeViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = UIColor.groupTableViewBackground
+    view.backgroundColor = .white
+    navigationItem.title = "Caret Caster"
     
     let local = Locale.current
     print(local)
