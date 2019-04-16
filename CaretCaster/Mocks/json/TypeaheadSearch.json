@@ -1,0 +1,80 @@
+{
+  "terms": [
+    "starfinder",
+    "starting a digital marketing agency",
+    "star wars",
+    "startups",
+    "startup",
+    "star trek discovery",
+    "startup founder",
+    "star blazers",
+    "starting a website",
+    "startripper"
+  ],
+  "podcasts": [
+    {
+      "title_original": "Star Wars Minute",
+      "image": "https://d3sv2eduhewoas.cloudfront.net/channel/image/8e1a4c9b5f7948c9b7df529fcd995d21.jpg",
+      "explicit_content": false,
+      "thumbnail": "https://d3sv2eduhewoas.cloudfront.net/channel/image/9fe91514fc1541c7999a252e8031d440.jpg",
+      "id": "9af8a811286b4fffa82e4c083cf5e711",
+      "title_highlighted": "<span class=\"ln-search-highlight\">Star</span> Wars Minute",
+      "publisher_highlighted": "Shampoopoo",
+      "publisher_original": "Shampoopoo"
+    },
+    {
+      "title_original": "StartUp Podcast",
+      "image": "https://d3sv2eduhewoas.cloudfront.net/channel/image/d3c0cb47383b40319223c78904fb7f43.jpg",
+      "explicit_content": false,
+      "thumbnail": "https://d3sv2eduhewoas.cloudfront.net/channel/image/1b92d678403f4526a72e245525df8929.jpg",
+      "id": "0d362b13399240de97602ef614acdcbc",
+      "title_highlighted": "<span class=\"ln-search-highlight\">StartUp</span> Podcast",
+      "publisher_highlighted": "Gimlet",
+      "publisher_original": "Gimlet"
+    },
+    {
+      "title_original": "Rebel Force Radio: Star Wars Podcast",
+      "image": "https://d3sv2eduhewoas.cloudfront.net/channel/image/fe6e4724d9904bfeab3899bf2bcfbcab.jpg",
+      "explicit_content": false,
+      "thumbnail": "https://d3sv2eduhewoas.cloudfront.net/channel/image/3ab4707a1c404d18ac15572bb6edc19c.jpe",
+      "id": "ca3b35271db04291ba56fab8a4f731e4",
+      "title_highlighted": "Rebel Force Radio: <span class=\"ln-search-highlight\">Star</span> Wars Podcast",
+      "publisher_highlighted": "<span class=\"ln-search-highlight\">Star</span> Wars",
+      "publisher_original": "Star Wars"
+    },
+    {
+      "title_original": "Star Wars 7x7 | Star Wars News, Interviews, and More!",
+      "image": "https://d3sv2eduhewoas.cloudfront.net/channel/image/f4d81f89f7ad4e16a56dd803769cb1f6.jpg",
+      "explicit_content": false,
+      "thumbnail": "https://d3sv2eduhewoas.cloudfront.net/channel/image/99366f69213548dea8670f4def2dde06.png",
+      "id": "4d3fe717742d4963a85562e9f84d8c79",
+      "title_highlighted": "<span class=\"ln-search-highlight\">Star</span> Wars 7x7 | <span class=\"ln-search-highlight\">Star</span> Wars News, Interviews, and More!",
+      "publisher_highlighted": "<span class=\"ln-search-highlight\">Star</span> Wars Daily, by Allen Voivod",
+      "publisher_original": "Star Wars Daily, by Allen Voivod"
+    },
+    {
+      "title_original": "Mixergy - Startup Stories with 1000+ entrepreneurs and businesses",
+      "image": "https://d3sv2eduhewoas.cloudfront.net/channel/image/07ff0e48674a4061af46bdea10aa07f0.jpg",
+      "explicit_content": false,
+      "thumbnail": "https://d3sv2eduhewoas.cloudfront.net/channel/image/6dc06aaf25e54f1db0346c864e5a7807.jpeg",
+      "id": "1db44068428d431c89be369e8535b6ae",
+      "title_highlighted": "Mixergy - <span class=\"ln-search-highlight\">Startup</span> Stories with 1000+ entrepreneurs and businesses",
+      "publisher_highlighted": "Andrew Warner",
+      "publisher_original": "Andrew Warner"
+    }
+  ],
+  "genres": [
+    {
+      "id": 157,
+      "name": "Startup"
+    },
+    {
+      "id": 160,
+      "name": "Star Wars"
+    },
+    {
+      "id": 161,
+      "name": "Star Trek"
+    }
+  ]
+}

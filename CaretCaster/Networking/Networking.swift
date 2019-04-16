@@ -14,11 +14,11 @@ enum ParsingType: Int {
   case bestOf
 }
 
+enum CCError: Error {
+  case dataFailure
+}
+
 struct Networking {
-  
-  enum CCError: Error {
-    case dataFailure
-  }
   
   struct Path {
     static let genres = "/genres"

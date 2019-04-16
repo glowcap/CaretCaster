@@ -19,32 +19,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     self.window = UIWindow(frame: UIScreen.main.bounds)
     
+    UINavigationBar.appearance().barTintColor = ThemeColors.caret
+    
     let first = HomeViewController()
     let nav1 = UINavigationController(rootViewController: first)
     nav1.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named:"IconNav1"), tag: 1)
+    nav1.tabBarItem = UITabBarItem(tabBarSystemItem: .topRated, tag: 1)
+    nav1.title = "Home"
     
-    let nav2 = UINavigationController()
     let second = UIViewController()
-    second.view.backgroundColor = .red
+    let nav2 = UINavigationController(rootViewController: second)
+    second.view.backgroundColor = .white
     nav2.viewControllers = [second]
-    nav2.tabBarItem = UITabBarItem(title: "Casts", image: UIImage(named:"IconNav2"), tag: 2)
+    nav2.tabBarItem = UITabBarItem(title: "Casts", image: UIImage(named:"castsTabIcon"), tag: 2)
+    nav2.tabBarItem.largeContentSizeImage = UIImage(named:"castsTabIconADA")
     
-    let nav3 = UINavigationController()
     let third = UIViewController()
-    third.view.backgroundColor = .blue
-    nav3.viewControllers = [third]
-    nav3.tabBarItem = UITabBarItem(title: "Browse", image: UIImage(named:"IconNav3"), tag: 3)
+    third.view.backgroundColor = .white
+    third.tabBarItem = UITabBarItem(title: "", image: UIImage(), tag: 3)
+    third.tabBarItem.isEnabled = false
     
-    let nav4 = UINavigationController()
     let fourth = UIViewController()
-    fourth.view.backgroundColor = .yellow
+    let nav4 = UINavigationController(rootViewController: fourth)
+    fourth.view.backgroundColor = .white
     nav4.viewControllers = [fourth]
-    nav4.tabBarItem = UITabBarItem(title: "TBA", image: UIImage(named:"IconNav3"), tag: 4)
+    nav4.tabBarItem = UITabBarItem(title: "Browse", image: UIImage(named:"IconNav4"), tag: 4)
     
-    let tabs = UITabBarController()
-    tabs.viewControllers = [nav1, nav2, nav3, nav4]
+    let fifth = UIViewController()
+    let nav5 = UINavigationController(rootViewController: fifth)
+    fifth.view.backgroundColor = .white
+    nav5.viewControllers = [fifth]
+    nav5.tabBarItem = UITabBarItem(title: "TBA", image: UIImage(named:"IconNav5"), tag: 5)
     
-    self.window?.rootViewController = tabs
+    let tabBarVC = CCTabBarController()
+    tabBarVC.viewControllers = [nav1, nav2, third, nav4, nav5]
+    
+    self.window?.rootViewController = tabBarVC
     self.window?.makeKeyAndVisible()
     
     return true
