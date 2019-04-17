@@ -144,6 +144,9 @@ class MyCastCell: UICollectionViewCell {
   
   func configure(podcast: Podcast) {
     backgroundColor = .white
+    layer.cornerRadius = 4
+    layer.maskedCorners = [.layerMaxXMinYCorner]
+    clipsToBounds = true
     layoutUIComponents()
     titleLabel.text = podcast.title
     guard let imgURL = podcast.imageURL else { return }
@@ -169,8 +172,7 @@ class MyCastCell: UICollectionViewCell {
   
   private func layoutAlertLabel() {
     addSubview(alertLabel)
-    alertLabel.setAnchors(top: imageView.topAnchor, right: imageView.rightAnchor, paddingTop: -2, paddingRight: -2)
-    alertLabel.setAnchors(top: imageView.topAnchor, right: imageView.rightAnchor)
+    alertLabel.setAnchors(top: topAnchor, right: rightAnchor, paddingTop: -2, paddingRight: -2)
   }
 
 }
