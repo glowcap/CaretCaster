@@ -128,17 +128,33 @@ class MyCastCell: UICollectionViewCell {
     return lbl
   }()
   
+  private let alertLabel: NewPodsAlertLabel = {
+    let lbl = NewPodsAlertLabel()
+    lbl.font = UIFont.systemFont(ofSize: 12, weight: .medium)
+    lbl.textColor = .white
+    lbl.textAlignment = .right
+    lbl.backgroundColor = .red
+    lbl.layer.borderColor = UIColor.white.cgColor
+    lbl.layer.borderWidth = 2
+    lbl.layer.cornerRadius = 4
+    lbl.layer.maskedCorners = [.layerMinXMaxYCorner]
+    lbl.clipsToBounds = true
+    return lbl
+  }()
+  
   func configure(podcast: Podcast) {
     backgroundColor = .white
     layoutUIComponents()
     titleLabel.text = podcast.title
     guard let imgURL = podcast.imageURL else { return }
     imageView.load(url: imgURL)
+    alertLabel.text = String(describing: podcast.totalEpisodes) // totalEpisodes is temp
   }
   
   private func layoutUIComponents() {
     layoutImageView()
     layoutTitleLabel()
+    layoutAlertLabel()
   }
   
   private func layoutImageView() {
@@ -149,6 +165,12 @@ class MyCastCell: UICollectionViewCell {
   private func layoutTitleLabel() {
     addSubview(titleLabel)
     titleLabel.setAnchors(top: imageView.bottomAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
+  }
+  
+  private func layoutAlertLabel() {
+    addSubview(alertLabel)
+    alertLabel.setAnchors(top: imageView.topAnchor, right: imageView.rightAnchor, paddingTop: -2, paddingRight: -2)
+    alertLabel.setAnchors(top: imageView.topAnchor, right: imageView.rightAnchor)
   }
 
 }

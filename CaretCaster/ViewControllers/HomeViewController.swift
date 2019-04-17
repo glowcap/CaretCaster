@@ -31,12 +31,12 @@ class HomeViewController: UIViewController {
     let local = Locale.current
     print(local)
     
-    let networking = Networking()
-    
     if let pdcst = DesignMocks.podcast {
       recentlyAddedPodcasts = [pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst]
       myPodcasts = [pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst]
     }
+    
+//    let networking = Networking()
     
 //    if let request = networking.generateBestOfURL(genreId: 138, region: "us", isSafeMode: false) {
 //      networking.fire(request: request) { data, error in
