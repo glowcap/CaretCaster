@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let first = HomeViewController()
     let nav1 = UINavigationController(rootViewController: first)
     nav1.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named:"IconNav1"), tag: 1)
-    nav1.tabBarItem = UITabBarItem(tabBarSystemItem: .topRated, tag: 1)
     nav1.title = "Home"
     
     let second = UIViewController()

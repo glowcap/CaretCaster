@@ -20,7 +20,7 @@ final class CCTabBarController: UITabBarController {
   var podView = PodView()
   
   var buttonDelegate: CCTabButtonDelegate?
-  var isPlaying = true {
+  var isPlaying = false {
     willSet {
       print("isPlaying: \(newValue)")
     }
@@ -33,7 +33,11 @@ final class CCTabBarController: UITabBarController {
     
     if let podcast = DesignMocks.podcast {
       podView.configure(for: podcast)
+      if !isPlaying {
+        animateOutPodView()
+      }
     }
+    
   }
   
   private func configureMainButton() {
