@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol PodViewDelegate: AnyObject {
+  func activatePodView()
+}
+
 protocol CCTabButtonDelegate: AnyObject {
   func tapped(isPlaying: Bool)
 }
@@ -37,11 +41,10 @@ final class CCTabBarController: UITabBarController {
         animateOutPodView()
       }
     }
-    
   }
   
   private func configureMainButton() {
-    mainButton.backgroundColor = .purple
+    mainButton.backgroundColor = ThemeColors.stem
     mainButton.layer.cornerRadius = mainBtnSize / 2
     mainButton.clipsToBounds = true
     mainButton.addTarget(self, action: #selector(tapped), for: .touchUpInside)

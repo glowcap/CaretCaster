@@ -26,6 +26,7 @@ class HomeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationItem.title = "Caret Caster"
+    configureSettingsBarButton()
     configureCollectionView()
     
     let local = Locale.current
@@ -51,6 +52,15 @@ class HomeViewController: UIViewController {
 //      }
 //    }
     
+  }
+  
+  private func configureSettingsBarButton() {
+    let settingsButton = UIBarButtonItem(title: "•••", style: .plain, target: self, action: #selector(settingsTapped))
+    self.navigationItem.rightBarButtonItem = settingsButton
+  }
+  
+  @objc func settingsTapped() {
+    print("settings")
   }
   
   func configureCollectionView() {
@@ -87,7 +97,9 @@ extension HomeViewController: UICollectionViewDataSource {
     case 0:
       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContinueListeningCell.id, for: indexPath) as? ContinueListeningCell
         else { return UICollectionViewCell() }
-      cell.configure()
+      if let pdcst = DesignMocks.podcast {
+        cell.configure(podcast: pdcst)
+      }
       return cell
     case 1:
       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentlyAddedCollectionCell.id, for: indexPath) as? RecentlyAddedCollectionCell
@@ -106,6 +118,9 @@ extension HomeViewController: UICollectionViewDataSource {
   }
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    if indexPath.section == 0 {
+      
+    }
     guard indexPath.section != 1 else { return }
     print("selection index: section: \(indexPath.section), row: \(indexPath.row)")
   }
@@ -118,7 +133,12 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     let fullWidth = UIScreen.main.bounds.width
     switch indexPath.section {
     case 0:
-      return CGSize(width: fullWidth - 32, height: 180)
+      if let pdcst = DesignMocks.podcast {
+        let imageAndPadding = CGFloat(60 + 20)
+        let estDescFrame = estimatedFrameFor(text: pdcst.description, width: fullWidth - 32, fontSize: 12, fontWeight: .regular)
+        return CGSize(width: fullWidth - 32, height: estDescFrame.height + imageAndPadding)
+      }
+      return CGSize(width: fullWidth - 32, height: 00)
     case 1:
       return CGSize(width: fullWidth, height: 80)
     case 2:

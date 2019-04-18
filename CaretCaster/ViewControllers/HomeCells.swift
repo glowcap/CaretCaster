@@ -12,12 +12,80 @@ import UIKit
 
 class ContinueListeningCell: UICollectionViewCell {
   
+  let imageView: UIImageView = {
+    let iV = UIImageView()
+    iV.backgroundColor = .gray
+    iV.contentMode = .scaleAspectFill
+    iV.layer.cornerRadius = 4
+    iV.clipsToBounds = true
+    return iV
+  }()
+  
+  let titleLabel: UILabel = {
+    let lbl = UILabel()
+    lbl.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+    lbl.lineBreakMode = .byWordWrapping
+    lbl.numberOfLines = 2
+    lbl.textColor = ThemeColors.mainText
+    return lbl
+  }()
+  
+  let timeRemainingLabel: UILabel = {
+    let lbl = UILabel()
+    lbl.textColor = ThemeColors.subText
+    lbl.font = UIFont.systemFont(ofSize: 12, weight: .light)
+    return lbl
+  }()
+  
+  let descriptionLabel: UILabel = {
+    let lbl = UILabel()
+    lbl.textColor = ThemeColors.mainText
+    lbl.font = UIFont.systemFont(ofSize: 12)
+    lbl.lineBreakMode = .byWordWrapping
+    lbl.numberOfLines = 0
+    return lbl
+  }()
+  
   static let id = "ContinueListeningCell"
   
-  func configure() {
-    backgroundColor = .groupTableViewBackground
-    layer.cornerRadius = 4
-    clipsToBounds = true
+  func configure(podcast: Podcast) {
+    backgroundColor = .white
+    if let thumbURL = podcast.thumbnailURL {
+      imageView.load(url: thumbURL)
+    }
+    titleLabel.text = podcast.title
+    timeRemainingLabel.text = "15 minutes remaining"
+    descriptionLabel.text = podcast.description
+    layoutComponentViews()
+  }
+  
+  private func layoutComponentViews() {
+    layoutImageView()
+    layoutTitleLabel()
+    layoutTimeRemainingLabel()
+    layoutDescriptionLabel()
+  }
+  
+  private func layoutImageView() {
+    addSubview(imageView)
+    imageView.setAnchors(top: topAnchor, left: leftAnchor, paddingTop: 0, paddingLeft: 0, width: 60, height: 60)
+  }
+  
+  private func layoutTitleLabel() {
+    addSubview(titleLabel)
+    titleLabel.setAnchors(top: imageView.topAnchor, left: imageView.rightAnchor, right: rightAnchor,
+                          paddingTop: 8, paddingLeft: 12, paddingRight: 16)
+  }
+  
+  private func layoutTimeRemainingLabel() {
+    addSubview(timeRemainingLabel)
+    timeRemainingLabel.setAnchors(left: titleLabel.leftAnchor, bottom: imageView.bottomAnchor, right: titleLabel.rightAnchor)
+  }
+  
+  private func layoutDescriptionLabel() {
+    addSubview(descriptionLabel)
+    descriptionLabel.setAnchors(top: imageView.bottomAnchor, left: leftAnchor,
+                                right: rightAnchor, paddingTop: 12)
   }
 
 }
@@ -115,6 +183,7 @@ class MyCastCell: UICollectionViewCell {
   
   private let imageView: UIImageView = {
     let iV = UIImageView()
+    iV.backgroundColor = .gray
     iV.contentMode = .scaleAspectFill
     iV.layer.cornerRadius = 4
     iV.clipsToBounds = true

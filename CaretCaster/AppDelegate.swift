@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     self.window = UIWindow(frame: UIScreen.main.bounds)
     
     UINavigationBar.appearance().barTintColor = ThemeColors.caret
+    UINavigationBar.appearance().tintColor = .white
+    UINavigationBar.appearance().isOpaque = false
     
     let first = HomeViewController()
     let nav1 = UINavigationController(rootViewController: first)

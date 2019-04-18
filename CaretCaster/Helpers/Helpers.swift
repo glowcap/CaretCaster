@@ -11,7 +11,18 @@ import UIKit
 struct ThemeColors {
   static let mainText = #colorLiteral(red: 0.1764705882, green: 0.1764705882, blue: 0.1764705882, alpha: 1)  // #2D2D2D
   static let subText =  #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1)  // #727272
-  static let caret = #colorLiteral(red: 1, green: 0.5058823529, blue: 0, alpha: 1)  // #FF8100
+  static let caret = #colorLiteral(red: 0.9725490196, green: 0.5529411765, blue: 0.2862745098, alpha: 1)  // #F88D49
+  static let stem = #colorLiteral(red: 0.5333333333, green: 0.7176470588, blue: 0.05882352941, alpha: 1)  // #88B70F
+}
+
+func estimatedFrameFor(text: String, width: CGFloat, fontSize: CGFloat, fontWeight: UIFont.Weight) -> CGRect {
+  let height = CGFloat(1000)
+  let size = CGSize(width: width, height: height)
+  let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+  let attributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize, weight: fontWeight)]
+  
+  return NSString(string: text).boundingRect(with: size, options: options,
+                                             attributes: attributes, context: nil)
 }
 
 func parse<T: Decodable>(jsonFile: String, modelType: T.Type) -> T? {
