@@ -18,6 +18,8 @@
 		4A3B1B1B225455B300C7A8EE /* ListenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1B1A225455B300C7A8EE /* ListenModels.swift */; };
 		4A3B1B1D22556FFA00C7A8EE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1B1C22556FFA00C7A8EE /* Helpers.swift */; };
 		4A3B1B1F22557DDA00C7A8EE /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1B1E22557DDA00C7A8EE /* Networking.swift */; };
+		4A5DAEA32273533200C80FDA /* ConstraintHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5DAEA22273533200C80FDA /* ConstraintHelpers.swift */; };
+		4ABA57272273450C008FBB6C /* OnboardLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABA57262273450C008FBB6C /* OnboardLaunchViewController.swift */; };
 		4AE7DAB8225A51DF008DF19D /* ListenSearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7DAB7225A51DF008DF19D /* ListenSearchModels.swift */; };
 		4AE7DABE225D90DB008DF19D /* CCTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7DABD225D90DB008DF19D /* CCTabBarController.swift */; };
 		4AE7DAC122621BA2008DF19D /* PodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7DAC022621BA2008DF19D /* PodView.swift */; };
@@ -54,6 +56,8 @@
 		4A3B1B1A225455B300C7A8EE /* ListenModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenModels.swift; sourceTree = "<group>"; };
 		4A3B1B1C22556FFA00C7A8EE /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		4A3B1B1E22557DDA00C7A8EE /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		4A5DAEA22273533200C80FDA /* ConstraintHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintHelpers.swift; sourceTree = "<group>"; };
+		4ABA57262273450C008FBB6C /* OnboardLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardLaunchViewController.swift; sourceTree = "<group>"; };
 		4AE7DAB7225A51DF008DF19D /* ListenSearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenSearchModels.swift; sourceTree = "<group>"; };
 		4AE7DABD225D90DB008DF19D /* CCTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCTabBarController.swift; sourceTree = "<group>"; };
 		4AE7DAC022621BA2008DF19D /* PodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodView.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				4A3B1AF522541A5A00C7A8EE /* AppDelegate.swift */,
+				4ABA572822734514008FBB6C /* Onboarding */,
 				4AE7DABF22621B86008DF19D /* Main */,
 				4AE7DABA225AFD91008DF19D /* ViewControllers */,
 				4AE7DAB9225AFD82008DF19D /* Models */,
@@ -123,6 +128,22 @@
 				4A3B1B0F22541A5C00C7A8EE /* Info.plist */,
 			);
 			path = CaretCasterTests;
+			sourceTree = "<group>";
+		};
+		4ABA572822734514008FBB6C /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				4ABA57292273451C008FBB6C /* ViewControllers */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		4ABA57292273451C008FBB6C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4ABA57262273450C008FBB6C /* OnboardLaunchViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		4AE7DAB9225AFD82008DF19D /* Models */ = {
@@ -148,6 +169,7 @@
 			children = (
 				4A3B1B182254201B00C7A8EE /* Secret.swift */,
 				4A3B1B1C22556FFA00C7A8EE /* Helpers.swift */,
+				4A5DAEA22273533200C80FDA /* ConstraintHelpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -292,10 +314,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A37250A22660A8700ED9D97 /* HomeCells.swift in Sources */,
+				4ABA57272273450C008FBB6C /* OnboardLaunchViewController.swift in Sources */,
 				4A3B1AF822541A5A00C7A8EE /* HomeViewController.swift in Sources */,
 				4A3B1B1D22556FFA00C7A8EE /* Helpers.swift in Sources */,
 				4A3B1B192254201B00C7A8EE /* Secret.swift in Sources */,
 				4AE7DAC3226225AA008DF19D /* DesignMocks.swift in Sources */,
+				4A5DAEA32273533200C80FDA /* ConstraintHelpers.swift in Sources */,
 				4A3B1AF622541A5A00C7A8EE /* AppDelegate.swift in Sources */,
 				4AE7DAB8225A51DF008DF19D /* ListenSearchModels.swift in Sources */,
 				4A3B1B1B225455B300C7A8EE /* ListenModels.swift in Sources */,
