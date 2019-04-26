@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol PodViewDelegate: AnyObject {
+  func activatePodView()
+}
+
 protocol CCTabButtonDelegate: AnyObject {
   func tapped(isPlaying: Bool)
 }
@@ -20,7 +24,7 @@ final class CCTabBarController: UITabBarController {
   var podView = PodView()
   
   var buttonDelegate: CCTabButtonDelegate?
-  var isPlaying = true {
+  var isPlaying = false {
     willSet {
       print("isPlaying: \(newValue)")
     }
@@ -33,11 +37,14 @@ final class CCTabBarController: UITabBarController {
     
     if let podcast = DesignMocks.podcast {
       podView.configure(for: podcast)
+      if !isPlaying {
+        animateOutPodView()
+      }
     }
   }
   
   private func configureMainButton() {
-    mainButton.backgroundColor = .purple
+    mainButton.backgroundColor = ThemeColors.stem
     mainButton.layer.cornerRadius = mainBtnSize / 2
     mainButton.clipsToBounds = true
     mainButton.addTarget(self, action: #selector(tapped), for: .touchUpInside)

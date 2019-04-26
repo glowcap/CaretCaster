@@ -16,7 +16,7 @@ final class PodView: UIView {
   var imageView: UIImageView = {
     let iv = UIImageView()
     iv.contentMode = .scaleAspectFill
-    iv.backgroundColor = .purple
+    iv.backgroundColor = .darkGray
     iv.layer.cornerRadius = 4
     iv.clipsToBounds = true
     return iv
@@ -25,7 +25,9 @@ final class PodView: UIView {
   var titleLabel: UILabel = {
     let lbl = UILabel()
     lbl.textColor = ThemeColors.mainText
-    lbl.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+    lbl.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+    lbl.lineBreakMode = .byWordWrapping
+    lbl.numberOfLines = 2
     return lbl
   }()
   
@@ -73,35 +75,24 @@ extension PodView {
   
   private func layoutImageView() {
     self.addSubview(imageView)
-    imageView.translatesAutoresizingMaskIntoConstraints = false
-    imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
-    imageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16).isActive = true
-    imageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
-    imageView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+    imageView.setAnchors(top: topAnchor, left: leftAnchor, paddingTop: 10, paddingLeft: 16, width: 60, height: 60)
   }
   
   private func layoutTitleLabel() {
     self.addSubview(titleLabel)
-    titleLabel.translatesAutoresizingMaskIntoConstraints = false
-    titleLabel.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 8).isActive = true
-    titleLabel.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: 12).isActive = true
-    titleLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16).isActive = true
+    titleLabel.setAnchors(top: imageView.topAnchor, left: imageView.rightAnchor, right: rightAnchor,
+                          paddingTop: 8, paddingLeft: 12, paddingRight: 16)
   }
   
   private func layoutSubtitleLabel() {
     self.addSubview(subtitleLabel)
-    subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
-    subtitleLabel.bottomAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
-    subtitleLabel.leftAnchor.constraint(equalTo: titleLabel.leftAnchor).isActive = true
-    subtitleLabel.rightAnchor.constraint(equalTo: titleLabel.rightAnchor).isActive = true
+    subtitleLabel.setAnchors(left: titleLabel.leftAnchor, bottom: imageView.bottomAnchor, right: titleLabel.rightAnchor)
   }
   
   private func layoutProgressView() {
     self.addSubview(progressView)
-    progressView.translatesAutoresizingMaskIntoConstraints = false
-    progressView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10).isActive = true
-    progressView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16).isActive = true
-    progressView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16).isActive = true
+    progressView.setAnchors(top: imageView.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 10,
+                            paddingLeft: 16, paddingRight: 16)
   }
   
 }
