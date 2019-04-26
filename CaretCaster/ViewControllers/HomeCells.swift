@@ -87,7 +87,7 @@ class ContinueListeningCell: UICollectionViewCell {
     descriptionLabel.setAnchors(top: imageView.bottomAnchor, left: leftAnchor,
                                 right: rightAnchor, paddingTop: 12)
   }
-
+  
 }
 
 class RecentlyAddedCollectionCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -243,7 +243,7 @@ class MyCastCell: UICollectionViewCell {
     addSubview(alertLabel)
     alertLabel.setAnchors(top: topAnchor, right: rightAnchor, paddingTop: -2, paddingRight: -2)
   }
-
+  
 }
 
 class HomeHeaderView: UICollectionReusableView {

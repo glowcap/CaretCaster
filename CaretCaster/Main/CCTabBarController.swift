@@ -17,7 +17,7 @@ protocol CCTabButtonDelegate: AnyObject {
 }
 
 final class CCTabBarController: UITabBarController {
-
+  
   let mainButton = UIButton()
   let mainBtnSize = CGFloat(UIScreen.main.bounds.width * 0.18)
   
@@ -54,7 +54,7 @@ final class CCTabBarController: UITabBarController {
     isPlaying = !isPlaying
     buttonDelegate?.tapped(isPlaying: isPlaying)
     mainButton.isEnabled = false
-
+    
     if isPlaying {
       animateInPodView()
     } else {
@@ -92,7 +92,6 @@ final class CCTabBarController: UITabBarController {
     layoutPodView()
     layoutMainButton()
   }
-  
   
 }
 

@@ -45,7 +45,7 @@ final class PodView: UIView {
     pV.progress = 0.5
     return pV
   }()
-
+  
   func configure(for podcast: Podcast) {
     backgroundColor = #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1)
     titleLabel.text = podcast.title

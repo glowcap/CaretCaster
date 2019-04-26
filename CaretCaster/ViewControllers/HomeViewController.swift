@@ -37,20 +37,20 @@ class HomeViewController: UIViewController {
       myPodcasts = [pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst]
     }
     
-//    let networking = Networking()
+    //    let networking = Networking()
     
-//    if let request = networking.generateBestOfURL(genreId: 138, region: "us", isSafeMode: false) {
-//      networking.fire(request: request) { data, error in
-//        guard error == nil else { return }
-//        guard let data = data,
-//              let bestOf: BestOfGenre = networking.parse(data: data, modelType: ParsingType.bestOf)
-//         else { return }
-//        print(bestOf.name)
-//        print(bestOf.total)
-//        guard bestOf.podcasts.count > 0 else { return }
-//        print(bestOf.podcasts[0].title)
-//      }
-//    }
+    //    if let request = networking.generateBestOfURL(genreId: 138, region: "us", isSafeMode: false) {
+    //      networking.fire(request: request) { data, error in
+    //        guard error == nil else { return }
+    //        guard let data = data,
+    //              let bestOf: BestOfGenre = networking.parse(data: data, modelType: ParsingType.bestOf)
+    //         else { return }
+    //        print(bestOf.name)
+    //        print(bestOf.total)
+    //        guard bestOf.podcasts.count > 0 else { return }
+    //        print(bestOf.podcasts[0].title)
+    //      }
+    //    }
     
   }
   
@@ -73,7 +73,7 @@ class HomeViewController: UIViewController {
     
     layoutCollectionView()
   }
-
+  
   private func layoutCollectionView() {
     view.addSubview(collectionView)
     collectionView.setAnchors(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
@@ -106,7 +106,7 @@ extension HomeViewController: UICollectionViewDataSource {
         else { return UICollectionViewCell() }
       if let pdcst = DesignMocks.podcast {
         let podcasts = [pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst]
-          cell.configure(podcasts: podcasts)
+        cell.configure(podcasts: podcasts)
       }
       return cell
     default:
@@ -167,7 +167,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
     if kind == UICollectionView.elementKindSectionHeader {
       if let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
-                                                                         withReuseIdentifier: HomeHeaderView.id, for: indexPath) as? HomeHeaderView {
+                                                                            withReuseIdentifier: HomeHeaderView.id, for: indexPath) as? HomeHeaderView {
         let headerTitle: String
         switch indexPath.section {
         case 0:

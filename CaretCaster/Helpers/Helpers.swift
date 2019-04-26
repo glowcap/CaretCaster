@@ -15,6 +15,18 @@ struct ThemeColors {
   static let stem = #colorLiteral(red: 0.5333333333, green: 0.7176470588, blue: 0.05882352941, alpha: 1)  // #88B70F
 }
 
+enum UserDefaultKey: String {
+  case returningUser
+  
+  func value() -> String {
+    switch self {
+    case .returningUser: return "returningUser"
+    }
+  }
+}
+
+let screenWidth = UIScreen.main.bounds.width
+
 func estimatedFrameFor(text: String, width: CGFloat, fontSize: CGFloat, fontWeight: UIFont.Weight) -> CGRect {
   let height = CGFloat(1000)
   let size = CGSize(width: width, height: height)
@@ -39,7 +51,7 @@ struct WrapperType {
 }
 
 extension KeyedDecodingContainer {
-    
+  
   public func wrapper<T: Decodable>(key: K, ofType: T? = nil) throws -> T? {
     if let value = try? decodeIfPresent(T.self, forKey: key) {
       return value
@@ -67,62 +79,6 @@ extension UIImageView {
         self?.image = image
       }
     }
-  }
-  
-}
-
-extension UIView {
-  
-  func setAnchors(top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil,
-                 bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil,
-                 paddingTop: CGFloat = 0, paddingLeft: CGFloat = 0, paddingBottom: CGFloat = 0,
-                 paddingRight: CGFloat = 0, width: CGFloat = 0, height: CGFloat = 0) {
-    
-    self.translatesAutoresizingMaskIntoConstraints = false
-    
-    if let top = top {
-      self.topAnchor.constraint(equalTo: top, constant: paddingTop).isActive = true
-    }
-    
-    if let left = left {
-      self.leftAnchor.constraint(equalTo: left, constant: paddingLeft).isActive = true
-    }
-    
-    if let bottom = bottom {
-      self.bottomAnchor.constraint(equalTo: bottom, constant: paddingBottom).isActive = true
-    }
-    
-    if let right = right {
-      self.rightAnchor.constraint(equalTo: right, constant: -paddingRight).isActive = true
-    }
-    
-    if width != 0 {
-      self.widthAnchor.constraint(equalToConstant: width).isActive = true
-    }
-    
-    if height != 0 {
-      self.heightAnchor.constraint(equalToConstant: height).isActive = true
-    }
-  }
-  
-  var safeTopAnchor: NSLayoutYAxisAnchor {
-    if #available(iOS 11.0, *) { return safeAreaLayoutGuide.topAnchor }
-    return topAnchor
-  }
-  
-  var safeLeftAnchor: NSLayoutXAxisAnchor {
-    if #available(iOS 11.0, *) { return safeAreaLayoutGuide.leftAnchor }
-    return leftAnchor
-  }
-  
-  var safeBottomAnchor: NSLayoutYAxisAnchor {
-    if #available(iOS 11.0, *) { return safeAreaLayoutGuide.bottomAnchor }
-    return bottomAnchor
-  }
-  
-  var safeRightAnchor: NSLayoutXAxisAnchor {
-    if #available(iOS 11.0, *) { return safeAreaLayoutGuide.rightAnchor }
-    return rightAnchor
   }
   
 }

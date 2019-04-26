@@ -60,13 +60,13 @@ struct Podcast: Decodable {
           let webStr = try container.wrapper(key: .website, ofType: WrapperType.wtString),
           let noteStr = try container.wrapper(key: .notesURL, ofType: WrapperType.wtString),
           let rssStr = try container.wrapper(key: .rss, ofType: WrapperType.wtString)
-     else {
-      imageURL = URL(string: "")
-      thumbnailURL = URL(string: "")
-      website = URL(string: "")
-      notesURL = URL(string: "")
-      rss = URL(string: "")
-      return
+      else {
+        imageURL = URL(string: "")
+        thumbnailURL = URL(string: "")
+        website = URL(string: "")
+        notesURL = URL(string: "")
+        rss = URL(string: "")
+        return
     }
     
     imageURL = URL(string: imgStr)
