@@ -117,6 +117,10 @@ extension HomeViewController: UICollectionViewDataSource {
     }
   }
   
+}
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+  
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     if indexPath.section == 0 {
       
@@ -124,10 +128,6 @@ extension HomeViewController: UICollectionViewDataSource {
     guard indexPath.section != 1 else { return }
     print("selection index: section: \(indexPath.section), row: \(indexPath.row)")
   }
-  
-}
-
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     let fullWidth = UIScreen.main.bounds.width

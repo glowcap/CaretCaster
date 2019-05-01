@@ -19,6 +19,9 @@
 		4A3B1B1D22556FFA00C7A8EE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1B1C22556FFA00C7A8EE /* Helpers.swift */; };
 		4A3B1B1F22557DDA00C7A8EE /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1B1E22557DDA00C7A8EE /* Networking.swift */; };
 		4A5DAEA32273533200C80FDA /* ConstraintHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5DAEA22273533200C80FDA /* ConstraintHelpers.swift */; };
+		4A5DAEA52273B85000C80FDA /* OnboardGenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5DAEA42273B85000C80FDA /* OnboardGenreViewController.swift */; };
+		4A5DAEA722761C6700C80FDA /* OnboardSubscribeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5DAEA622761C6700C80FDA /* OnboardSubscribeViewController.swift */; };
+		4A5DAEA9227A545D00C80FDA /* OnboardingPodcastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5DAEA8227A545D00C80FDA /* OnboardingPodcastCell.swift */; };
 		4ABA57272273450C008FBB6C /* OnboardLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABA57262273450C008FBB6C /* OnboardLaunchViewController.swift */; };
 		4AE7DAB8225A51DF008DF19D /* ListenSearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7DAB7225A51DF008DF19D /* ListenSearchModels.swift */; };
 		4AE7DABE225D90DB008DF19D /* CCTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7DABD225D90DB008DF19D /* CCTabBarController.swift */; };
@@ -57,6 +60,9 @@
 		4A3B1B1C22556FFA00C7A8EE /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		4A3B1B1E22557DDA00C7A8EE /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		4A5DAEA22273533200C80FDA /* ConstraintHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintHelpers.swift; sourceTree = "<group>"; };
+		4A5DAEA42273B85000C80FDA /* OnboardGenreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardGenreViewController.swift; sourceTree = "<group>"; };
+		4A5DAEA622761C6700C80FDA /* OnboardSubscribeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardSubscribeViewController.swift; sourceTree = "<group>"; };
+		4A5DAEA8227A545D00C80FDA /* OnboardingPodcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPodcastCell.swift; sourceTree = "<group>"; };
 		4ABA57262273450C008FBB6C /* OnboardLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardLaunchViewController.swift; sourceTree = "<group>"; };
 		4AE7DAB7225A51DF008DF19D /* ListenSearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenSearchModels.swift; sourceTree = "<group>"; };
 		4AE7DABD225D90DB008DF19D /* CCTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCTabBarController.swift; sourceTree = "<group>"; };
@@ -109,6 +115,7 @@
 				4ABA572822734514008FBB6C /* Onboarding */,
 				4AE7DABF22621B86008DF19D /* Main */,
 				4AE7DABA225AFD91008DF19D /* ViewControllers */,
+				4A5DAEAB227A583000C80FDA /* Views */,
 				4AE7DAB9225AFD82008DF19D /* Models */,
 				4AE7DABC225AFDEC008DF19D /* Networking */,
 				4AE7DAC4226225B3008DF19D /* Mocks */,
@@ -130,10 +137,27 @@
 			path = CaretCasterTests;
 			sourceTree = "<group>";
 		};
+		4A5DAEAA227A546300C80FDA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4A5DAEA8227A545D00C80FDA /* OnboardingPodcastCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4A5DAEAB227A583000C80FDA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4A37250922660A8700ED9D97 /* HomeCells.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		4ABA572822734514008FBB6C /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
 				4ABA57292273451C008FBB6C /* ViewControllers */,
+				4A5DAEAA227A546300C80FDA /* Views */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -142,6 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				4ABA57262273450C008FBB6C /* OnboardLaunchViewController.swift */,
+				4A5DAEA42273B85000C80FDA /* OnboardGenreViewController.swift */,
+				4A5DAEA622761C6700C80FDA /* OnboardSubscribeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -159,7 +185,6 @@
 			isa = PBXGroup;
 			children = (
 				4A3B1AF722541A5A00C7A8EE /* HomeViewController.swift */,
-				4A37250922660A8700ED9D97 /* HomeCells.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -314,10 +339,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A37250A22660A8700ED9D97 /* HomeCells.swift in Sources */,
+				4A5DAEA9227A545D00C80FDA /* OnboardingPodcastCell.swift in Sources */,
 				4ABA57272273450C008FBB6C /* OnboardLaunchViewController.swift in Sources */,
 				4A3B1AF822541A5A00C7A8EE /* HomeViewController.swift in Sources */,
 				4A3B1B1D22556FFA00C7A8EE /* Helpers.swift in Sources */,
 				4A3B1B192254201B00C7A8EE /* Secret.swift in Sources */,
+				4A5DAEA722761C6700C80FDA /* OnboardSubscribeViewController.swift in Sources */,
 				4AE7DAC3226225AA008DF19D /* DesignMocks.swift in Sources */,
 				4A5DAEA32273533200C80FDA /* ConstraintHelpers.swift in Sources */,
 				4A3B1AF622541A5A00C7A8EE /* AppDelegate.swift in Sources */,
@@ -327,6 +354,7 @@
 				4A3B1AFE22541A5A00C7A8EE /* CaretCaster.xcdatamodeld in Sources */,
 				4AE7DABE225D90DB008DF19D /* CCTabBarController.swift in Sources */,
 				4A3B1B1F22557DDA00C7A8EE /* Networking.swift in Sources */,
+				4A5DAEA52273B85000C80FDA /* OnboardGenreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

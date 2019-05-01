@@ -8,6 +8,13 @@
 
 import Foundation
 
+enum PodcastError: Error {
+  case apiFailed // 401
+  case missingPodcastOrEpisode // 404
+  case exceededQuota // 429
+  case backendError // 500
+}
+
 enum ParsingType: Int {
   case genre
   case genres
@@ -46,7 +53,7 @@ struct Networking {
     return base.url
   }
   
-  func generateBestOfURL(genreId: Int, page: Int = 0, region: String, isSafeMode: Bool) -> URL? {
+  func generateBestOfURL(genreId: Int, page: Int = 0, region: String = "us", isSafeMode: Bool) -> URL? {
     var base = urlComponents
     base.path += Path.bestOf
     let genID = URLQueryItem(name: QueryKey.genreID, value: String(genreId))

@@ -45,6 +45,7 @@ class OnboardLaunchViewController: UIViewController {
     layoutHeaderLabel()
     layoutSplashImage()
     layoutGetStartedBtn()
+    getStartedBtn.addTarget(self, action: #selector(getStartedTapped), for: .touchUpInside)
   }
   
   private func configuredHeaderLabelText(_ text: String) -> NSMutableAttributedString {
@@ -59,6 +60,12 @@ class OnboardLaunchViewController: UIViewController {
     attributedString.addAttributes([.foregroundColor: ThemeColors.caret, .font: UIFont.systemFont(ofSize: 32, weight: .semibold)],
                                    range: range)
     return attributedString
+  }
+  
+  @objc func getStartedTapped() {
+    let genreVC = OnboardGenreViewController()
+    let navCon = UINavigationController(rootViewController: genreVC)
+    show(navCon, sender: self)
   }
   
 }

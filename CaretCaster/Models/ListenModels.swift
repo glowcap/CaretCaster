@@ -92,7 +92,8 @@ struct Genres: Decodable {
   
 }
 
-struct Genre: Decodable {
+struct Genre: Decodable  {
+  
   var id: Int
   var parentID: Int
   var name: String
@@ -108,6 +109,18 @@ struct Genre: Decodable {
     id = try container.wrapper(key: .id, ofType: WrapperType.wtInt) ?? -2
     parentID = try container.wrapper(key: .parentID, ofType: WrapperType.wtInt) ?? -2
     name = try container.wrapper(key: .name, ofType: WrapperType.wtString) ?? "xyz"
+  }
+  
+}
+
+extension Genre: Equatable, Comparable {
+  
+  static func ==(lhs: Genre, rhs: Genre) -> Bool {
+    return lhs.name == rhs.name
+  }
+  
+  static func < (lhs: Genre, rhs: Genre) -> Bool {
+    return lhs.name < rhs.name
   }
   
 }
