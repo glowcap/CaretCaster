@@ -20,16 +20,20 @@ struct Podcast: Decodable {
   let isExplicit: Bool
   let episodes: [Episode]
   let genreIDs: [Int]
-  let latestPublishDate: Int
-  let nextPublishDate: Int
-  let earliestPublishDate: Int
+  let latestPublishDate: Int // milliseconds since 1/1/70
+  let nextPublishDate: Int // milliseconds since 1/1/70
+  let earliestPublishDate: Int // milliseconds since 1/1/70
   
-  // these need formatting to set
+  // need formatting to set
   let imageURL: URL?
   let thumbnailURL: URL?
   let website: URL?
   let notesURL: URL?
   let rss: URL?
+  
+  // restored from CDPodcast (if available)
+  var image: UIImage?
+  var thumbnail: UIImage?
   
   enum CodingKeys: String, CodingKey {
     case totalEpisodes = "total_episodes"
@@ -87,16 +91,23 @@ struct Podcast: Decodable {
 }
 
 struct Episode: Decodable {
-  var title: String
-  var id: String
-  var description: String
-  var thumbnailURL: URL?
-  var imageURL: URL?
-  var audioURL: URL?
-  var pubishDate: Int // milliseconds since 1/1/70
-  var length: Int
-  var isExplicit: Bool
-  var maybeInvalidAudio: Bool
+  let title: String
+  let id: String
+  let description: String
+  let pubishDate: Int // milliseconds since 1/1/70
+  let length: Int
+  let isExplicit: Bool
+  let maybeInvalidAudio: Bool
+  
+  // need formatting to set
+  let thumbnailURL: URL?
+  let imageURL: URL?
+  let audioURL: URL?
+  
+  // restored from CDEpisode (if available)
+  var thumbnail: UIImage?
+  var image: UIImage?
+  var savedAudioURL: 
   
   enum CodingKeys: String, CodingKey {
     case title

@@ -38,19 +38,21 @@ class OnboardGenreViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .white
+    configureNextButton()
     setUpTableView()
     layoutComponents()
     fetchAllGenres()
-    
+  }
+  
+  private func configureNextButton() {
     barButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextTapped))
     barButton?.isEnabled = false
     navigationItem.rightBarButtonItem = barButton
   }
   
   private func fetchAllGenres() {
-    let cdGenres = PersistanceManager.shared.fetchAll(CDGenre.self)
+    let cdGenres = loadedAllGenresFromCD()
     if cdGenres.count > 0 {
-      allGenres = cdGenres.compactMap({Genre(cdGenre: $0)}).sorted()
       tableView.reloadData()
     } else {
       guard let request = networking.generateGenresURL() else { return }
@@ -67,6 +69,15 @@ class OnboardGenreViewController: UIViewController {
         }
       }
     }
+  }
+  
+  private func loadedAllGenresFromCD() -> [Genre] {
+    var allGenres = [Genre]()
+    let cdGenres = PersistanceManager.shared.fetchAll(CDGenre.self)
+    if cdGenres.count > 0 {
+      allGenres = cdGenres.compactMap({Genre(cdGenre: $0)}).sorted()
+    }
+    return allGenres
   }
   
   private func saveGenreToCD(_ genre: Genre) {

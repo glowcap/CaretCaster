@@ -33,10 +33,13 @@ class OnboardSubscribeViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .white
+    configureNextButton()
     configureCollectionView()
     layoutCollectionView()
     fetchBestOfPodcasts(genres: selectedGenres)
-    
+  }
+  
+  private func configureNextButton() {
     barButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextTapped))
     barButton?.isEnabled = false
     navigationItem.rightBarButtonItem = barButton
