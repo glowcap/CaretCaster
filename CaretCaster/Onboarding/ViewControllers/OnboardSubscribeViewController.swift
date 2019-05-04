@@ -13,7 +13,13 @@ class OnboardSubscribeViewController: UIViewController {
   var networking: Networking?
   var selectedGenres = [Genre]()
   var bestOfPodcasts = [[Podcast]]()
-  var subscribedPodcasts = [Podcast]()
+  var subscribedPodcasts = [Podcast]() {
+    willSet {
+      barButton?.isEnabled = newValue.count >= 3
+    }
+  }
+  
+  var barButton: UIBarButtonItem?
   
   let collectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
@@ -30,6 +36,10 @@ class OnboardSubscribeViewController: UIViewController {
     configureCollectionView()
     layoutCollectionView()
     fetchBestOfPodcasts(genres: selectedGenres)
+    
+    barButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextTapped))
+    barButton?.isEnabled = false
+    navigationItem.rightBarButtonItem = barButton
   }
   
   private func fetchBestOfPodcasts(genres: [Genre]) {
@@ -57,6 +67,11 @@ class OnboardSubscribeViewController: UIViewController {
   private func layoutCollectionView() {
     view.addSubview(collectionView)
     collectionView.setAnchors(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
+  }
+  
+  @objc func nextTapped() {
+    let tabController = AppDelegate.configuredCCTabBarController()
+    self.present(tabController, animated: true)
   }
   
 }

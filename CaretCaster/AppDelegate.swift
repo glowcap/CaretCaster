@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var rootViewController: UIViewController
     
     if userDefaults.bool(forKey: UserDefaultKey.returningUser.value()) {
-      rootViewController = configuredCCTabBarController()
+      rootViewController = AppDelegate.configuredCCTabBarController()
     } else {
       rootViewController = OnboardLaunchViewController()
     }
@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
   
-  private func configuredCCTabBarController() -> CCTabBarController {
+  static func configuredCCTabBarController() -> CCTabBarController {
     UINavigationBar.appearance().barTintColor = ThemeColors.caret
     UINavigationBar.appearance().tintColor = .white
     UINavigationBar.appearance().isOpaque = false

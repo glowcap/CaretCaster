@@ -50,7 +50,7 @@ class OnboardGenreViewController: UIViewController {
   private func fetchAllGenres() {
     let cdGenres = PersistanceManager.shared.fetchAll(CDGenre.self)
     if cdGenres.count > 0 {
-      allGenres = cdGenres.compactMap { Genre(cdGenre: $0) }
+      allGenres = cdGenres.compactMap({Genre(cdGenre: $0)}).sorted()
       tableView.reloadData()
     } else {
       guard let request = networking.generateGenresURL() else { return }
