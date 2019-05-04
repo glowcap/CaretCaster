@@ -25,6 +25,7 @@
 		4A5DAEB6227A68F500C80FDA /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5DAEB5227A68F500C80FDA /* PersistanceManager.swift */; };
 		4A5DAEB9227A6BAD00C80FDA /* CDGenre+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5DAEB7227A6BAD00C80FDA /* CDGenre+CoreDataClass.swift */; };
 		4A5DAEBA227A6BAD00C80FDA /* CDGenre+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5DAEB8227A6BAD00C80FDA /* CDGenre+CoreDataProperties.swift */; };
+		4A5DAEBC227DE6EA00C80FDA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5DAEBB227DE6EA00C80FDA /* Extensions.swift */; };
 		4ABA57272273450C008FBB6C /* OnboardLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABA57262273450C008FBB6C /* OnboardLaunchViewController.swift */; };
 		4AE7DAB8225A51DF008DF19D /* ListenSearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7DAB7225A51DF008DF19D /* ListenSearchModels.swift */; };
 		4AE7DABE225D90DB008DF19D /* CCTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE7DABD225D90DB008DF19D /* CCTabBarController.swift */; };
@@ -69,6 +70,7 @@
 		4A5DAEB5227A68F500C80FDA /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
 		4A5DAEB7227A6BAD00C80FDA /* CDGenre+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDGenre+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4A5DAEB8227A6BAD00C80FDA /* CDGenre+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDGenre+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4A5DAEBB227DE6EA00C80FDA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4ABA57262273450C008FBB6C /* OnboardLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardLaunchViewController.swift; sourceTree = "<group>"; };
 		4AE7DAB7225A51DF008DF19D /* ListenSearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenSearchModels.swift; sourceTree = "<group>"; };
 		4AE7DABD225D90DB008DF19D /* CCTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCTabBarController.swift; sourceTree = "<group>"; };
@@ -130,7 +132,6 @@
 				4A3B1AFF22541A5C00C7A8EE /* Assets.xcassets */,
 				4A3B1B0122541A5C00C7A8EE /* LaunchScreen.storyboard */,
 				4A3B1B0422541A5C00C7A8EE /* Info.plist */,
-				4A3B1AFC22541A5A00C7A8EE /* CaretCaster.xcdatamodeld */,
 			);
 			path = CaretCaster;
 			sourceTree = "<group>";
@@ -163,6 +164,7 @@
 		4A5DAEB4227A68B400C80FDA /* CDModels */ = {
 			isa = PBXGroup;
 			children = (
+				4A3B1AFC22541A5A00C7A8EE /* CaretCaster.xcdatamodeld */,
 				4A5DAEB5227A68F500C80FDA /* PersistanceManager.swift */,
 				4A5DAEB7227A6BAD00C80FDA /* CDGenre+CoreDataClass.swift */,
 				4A5DAEB8227A6BAD00C80FDA /* CDGenre+CoreDataProperties.swift */,
@@ -211,6 +213,7 @@
 			children = (
 				4A3B1B182254201B00C7A8EE /* Secret.swift */,
 				4A3B1B1C22556FFA00C7A8EE /* Helpers.swift */,
+				4A5DAEBB227DE6EA00C80FDA /* Extensions.swift */,
 				4A5DAEA22273533200C80FDA /* ConstraintHelpers.swift */,
 			);
 			path = Helpers;
@@ -368,6 +371,7 @@
 				4A3B1AF622541A5A00C7A8EE /* AppDelegate.swift in Sources */,
 				4A5DAEB9227A6BAD00C80FDA /* CDGenre+CoreDataClass.swift in Sources */,
 				4AE7DAB8225A51DF008DF19D /* ListenSearchModels.swift in Sources */,
+				4A5DAEBC227DE6EA00C80FDA /* Extensions.swift in Sources */,
 				4A3B1B1B225455B300C7A8EE /* ListenModels.swift in Sources */,
 				4AE7DAC122621BA2008DF19D /* PodView.swift in Sources */,
 				4A5DAEB6227A68F500C80FDA /* PersistanceManager.swift in Sources */,

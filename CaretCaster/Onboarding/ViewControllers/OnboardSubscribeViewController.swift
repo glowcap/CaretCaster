@@ -46,6 +46,7 @@ class OnboardSubscribeViewController: UIViewController {
   }
   
   private func fetchBestOfPodcasts(genres: [Genre]) {
+    showSpinnerView()
     for genre in genres {
       guard let url = networking?.generateBestOfURL(genreId: genre.id, isSafeMode: false) else { return }
       networking?.fire(request: url) { [weak self] data, error in
@@ -55,6 +56,7 @@ class OnboardSubscribeViewController: UIViewController {
           print("top10 count: ", top10.count)
           self?.bestOfPodcasts.append(top10)
           self?.collectionView.reloadData()
+          self?.hideSpinnerView()
         }
       }
     }

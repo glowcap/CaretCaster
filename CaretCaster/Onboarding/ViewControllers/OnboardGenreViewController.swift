@@ -51,9 +51,14 @@ class OnboardGenreViewController: UIViewController {
   }
   
   private func fetchAllGenres() {
+    showSpinnerView()
     let cdGenres = loadedAllGenresFromCD()
     if cdGenres.count > 0 {
-      tableView.reloadData()
+      DispatchQueue.main.async {
+        self.hideSpinnerView()
+        self.allGenres = cdGenres
+        self.tableView.reloadData()
+      }
     } else {
       guard let request = networking.generateGenresURL() else { return }
       networking.fire(request: request) { [weak self] data, error in
@@ -64,6 +69,7 @@ class OnboardGenreViewController: UIViewController {
               self?.saveGenreToCD(genre)
             }
             self?.allGenres = genres.genres.sorted()
+            self?.hideSpinnerView()
             self?.tableView.reloadData()
           }
         }
@@ -201,3 +207,19 @@ private extension OnboardGenreViewController {
     tableView.setAnchors(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
   }
 }
+
+final class SpinnerViewController: UIViewController {
+  var spinner = UIActivityIndicatorView(style: .whiteLarge)
+  
+  override func loadView() {
+    view = UIView()
+    view.backgroundColor = UIColor(white: 0, alpha: 0.7)
+    
+    spinner.startAnimating()
+    
+    view.addSubview(spinner)
+    spinner.translatesAutoresizingMaskIntoConstraints = false
+    spinner.setAnchorsCenterToParent()
+  }
+}
+

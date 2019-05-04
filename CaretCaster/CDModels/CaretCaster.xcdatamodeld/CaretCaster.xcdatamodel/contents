@@ -8,6 +8,7 @@
         <attribute name="isExplicit" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="length" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="maybeInvalidAudio" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="playedTime" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="publishDate" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="thumbnail" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
@@ -42,6 +43,6 @@
     <elements>
         <element name="CDGenre" positionX="-562.4765625" positionY="-432.37109375" width="128" height="90"/>
         <element name="CDPodcast" positionX="-572.609375" positionY="-280.76171875" width="128" height="328"/>
-        <element name="CDEpisode" positionX="-231.01953125" positionY="-187.90234375" width="128" height="208"/>
+        <element name="CDEpisode" positionX="-231.01953125" positionY="-187.90234375" width="128" height="223"/>
     </elements>
 </model>
