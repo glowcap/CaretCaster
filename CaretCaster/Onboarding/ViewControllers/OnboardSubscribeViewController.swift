@@ -13,6 +13,7 @@ class OnboardSubscribeViewController: UIViewController {
   var networking: Networking?
   var selectedGenres = [Genre]()
   var bestOfPodcasts = [[Podcast]]()
+  var subscribedPodcasts = [Podcast]()
   
   let collectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
@@ -73,7 +74,9 @@ extension OnboardSubscribeViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingPodcastCell.id, for: indexPath) as? OnboardingPodcastCell
       else { return UICollectionViewCell() }
-    cell.configureFor(podcast: bestOfPodcasts[indexPath.section][indexPath.row])
+    let podcast = bestOfPodcasts[indexPath.section][indexPath.row]
+    cell.configureFor(podcast: podcast)
+    cell.isSelected = subscribedPodcasts.contains(where: {$0.id == podcast.id})
     return cell
   }
   
@@ -82,7 +85,13 @@ extension OnboardSubscribeViewController: UICollectionViewDataSource {
 extension OnboardSubscribeViewController: UICollectionViewDelegateFlowLayout {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    collectionView.deselectItem(at: indexPath, animated: true)
+    let podcast = bestOfPodcasts[indexPath.section][indexPath.row]
+    if subscribedPodcasts.contains(where: {$0.id == podcast.id}) {
+      subscribedPodcasts = subscribedPodcasts.filter { $0.id != podcast.id }
+    } else {
+      subscribedPodcasts.append(podcast)
+    }
+    collectionView.reloadItems(at: [indexPath])
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

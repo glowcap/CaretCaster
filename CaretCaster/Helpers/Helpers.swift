@@ -44,15 +44,9 @@ func parse<T: Decodable>(jsonFile: String, modelType: T.Type) -> T? {
   return object
 }
 
-struct WrapperType {
-  static let wtInt = -1
-  static let wtString = ""
-  static let wtBool = false
-}
-
 extension KeyedDecodingContainer {
   
-  public func wrapper<T: Decodable>(key: K, ofType: T? = nil) throws -> T? {
+  public func wrapper<T: Decodable>(key: K) throws -> T? {
     if let value = try? decodeIfPresent(T.self, forKey: key) {
       return value
     }

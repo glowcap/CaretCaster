@@ -33,22 +33,16 @@ struct SearchPodcastModel: Decodable {
   
   init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
-    titleOriginal = try container.wrapper(key: .titleOriginal, ofType: WrapperType.wtString) ?? ""
-    isExplicit = try container.wrapper(key: .isExplicit, ofType: WrapperType.wtBool) ?? true
-    id = try container.wrapper(key: .id, ofType: WrapperType.wtString) ?? ""
-    publisherOriginal = try container.wrapper(key: .publisherOriginal, ofType: WrapperType.wtString) ?? ""
+    titleOriginal = try container.wrapper(key: .titleOriginal) ?? ""
+    isExplicit = try container.wrapper(key: .isExplicit) ?? true
+    id = try container.wrapper(key: .id) ?? ""
+    publisherOriginal = try container.wrapper(key: .publisherOriginal) ?? ""
     
-    guard let titleHighlightedStr = try container.wrapper(key: .titleHighlighted, ofType: WrapperType.wtString),
-          let publisherHighlightedStr = try container.wrapper(key: .publisherHighlighted, ofType: WrapperType.wtString),
-          let thumbnailStr = try container.wrapper(key: .thumbnailURL, ofType: WrapperType.wtString),
-          let imageStr = try container.wrapper(key: .imageURL, ofType: WrapperType.wtString)
-      else {
-        titleHighlighted = NSAttributedString(string: "")
-        publisherHighlighted = NSAttributedString(string: "")
-        thumbnailURL = URL(string: "")
-        imageURL = URL(string: "")
-        return
-    }
+    let titleHighlightedStr = try container.wrapper(key: .titleHighlighted) ?? ""
+    let publisherHighlightedStr = try container.wrapper(key: .publisherHighlighted) ?? ""
+    let thumbnailStr = try container.wrapper(key: .thumbnailURL) ?? ""
+    let imageStr = try container.wrapper(key: .imageURL) ?? ""
+
     titleHighlighted = NSAttributedString(string: titleHighlightedStr)
     publisherHighlighted = NSAttributedString(string: publisherHighlightedStr)
     thumbnailURL = URL(string: thumbnailStr)

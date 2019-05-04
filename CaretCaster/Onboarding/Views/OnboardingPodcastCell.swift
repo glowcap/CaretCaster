@@ -19,6 +19,13 @@ class OnboardingPodcastCell: UICollectionViewCell {
     return iV
   }()
   
+  override var isSelected: Bool {
+    willSet {
+      layer.borderColor = newValue ? ThemeColors.caret.cgColor: UIColor.clear.cgColor
+      layer.borderWidth = newValue ? 3 : 0
+    }
+  }
+  
   static let id = "OnboardingPodcastCell"
   
   func configureFor(podcast: Podcast) {

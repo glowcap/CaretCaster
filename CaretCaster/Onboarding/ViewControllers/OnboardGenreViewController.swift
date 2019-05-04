@@ -9,8 +9,9 @@
 import UIKit
 
 class OnboardGenreViewController: UIViewController {
-
+  
   let networking = Networking()
+  
   var allGenres = [Genre]()
   var selectedGenres = [Genre]() {
     willSet {
@@ -47,16 +48,33 @@ class OnboardGenreViewController: UIViewController {
   }
   
   private func fetchAllGenres() {
-    guard let request = networking.generateGenresURL() else { return }
-    networking.fire(request: request) { [weak self] data, error in
-      if let d = data {
-        guard let genres: Genres = self?.networking.parse(data: d, modelType: ParsingType.genres) else { return }
-        DispatchQueue.main.async {
-          self?.allGenres = genres.genres.sorted()
-          self?.tableView.reloadData()
+    let cdGenres = PersistanceManager.shared.fetchAll(CDGenre.self)
+    if cdGenres.count > 0 {
+      allGenres = cdGenres.compactMap { Genre(cdGenre: $0) }
+      tableView.reloadData()
+    } else {
+      guard let request = networking.generateGenresURL() else { return }
+      networking.fire(request: request) { [weak self] data, error in
+        if let d = data {
+          guard let genres: Genres = self?.networking.parse(data: d, modelType: ParsingType.genres) else { return }
+          DispatchQueue.main.async {
+            for genre in genres.genres {
+              self?.saveGenreToCD(genre)
+            }
+            self?.allGenres = genres.genres.sorted()
+            self?.tableView.reloadData()
+          }
         }
       }
     }
+  }
+  
+  private func saveGenreToCD(_ genre: Genre) {
+    let g = CDGenre(context: PersistanceManager.shared.context)
+    g.id = Int16(genre.id)
+    g.parentID = Int32(genre.parentID)
+    g.name = genre.name
+    PersistanceManager.shared.save()
   }
   
   private func setUpTableView() {
