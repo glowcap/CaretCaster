@@ -107,7 +107,7 @@ struct Episode: Decodable {
   // restored from CDEpisode (if available)
   var thumbnail: UIImage?
   var image: UIImage?
-  var savedAudioURL: 
+//  var savedAudioURL: 
   
   enum CodingKeys: String, CodingKey {
     case title
