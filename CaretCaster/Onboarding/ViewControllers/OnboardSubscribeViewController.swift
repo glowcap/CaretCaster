@@ -10,7 +10,6 @@ import UIKit
 
 class OnboardSubscribeViewController: UIViewController {
   
-  var networking: Networking?
   var selectedGenres = [Genre]()
   var bestOfPodcasts = [[Podcast]]()
   var subscribedPodcasts = [Podcast]() {
@@ -48,9 +47,9 @@ class OnboardSubscribeViewController: UIViewController {
   private func fetchBestOfPodcasts(genres: [Genre]) {
     showSpinnerView()
     for genre in genres {
-      guard let url = networking?.generateBestOfURL(genreId: genre.id, isSafeMode: false) else { return }
-      networking?.fire(request: url) { [weak self] data, error in
-        guard let d = data, let bestOf: BestOfGenre = self?.networking?.parse(data: d, modelType: .bestOf) else { return }
+      guard let url = NetworkManager.shared.generateBestOfURL(genreId: genre.id, isSafeMode: false) else { return }
+      NetworkManager.shared.fire(request: url) { [weak self] data, error in
+        guard let d = data, let bestOf: BestOfGenre = NetworkManager.shared.parse(data: d, modelType: .bestOf) else { return }
         DispatchQueue.main.async {
           let top10 = Array(bestOf.podcasts.prefix(9))
           print("top10 count: ", top10.count)
@@ -75,6 +74,12 @@ class OnboardSubscribeViewController: UIViewController {
   }
   
   @objc func nextTapped() {
+    if subscribedPodcasts.count > 0 {
+      for pod in subscribedPodcasts {
+        PersistanceManager.shared.savePodcastToCD(pod)
+      }
+    }
+    UserDefaults.standard.set(true, forKey: UserDefaultKey.returningUser.value())
     let tabController = AppDelegate.configuredCCTabBarController()
     self.present(tabController, animated: true)
   }

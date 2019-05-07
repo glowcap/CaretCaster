@@ -28,6 +28,7 @@ extension UIViewController {
   func showSpinnerView() {
     let spinnerView = UIView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
     spinnerView.tag = UIViewController.spinnerTag
+    spinnerView.isUserInteractionEnabled = false
     spinnerView.backgroundColor = UIColor(white: 0, alpha: 0.45)
     let spinner = UIActivityIndicatorView(style: .whiteLarge)
     spinner.startAnimating()

@@ -8,12 +8,16 @@
 
 import UIKit
 
+struct Podcasts: Decodable {
+  let podcasts: [Podcast]
+}
+
 struct Podcast: Decodable {
   let totalEpisodes: Int
   let description: String
   let title: String
   let publisher: String
-  let itunesID: Int
+  let iTunesID: Int
   let language: String
   let country: String
   let id: String
@@ -44,7 +48,7 @@ struct Podcast: Decodable {
     case title
     case rss
     case publisher
-    case itunesID = "itunes_id"
+    case iTunesID = "itunes_id"
     case language
     case country
     case id
@@ -63,7 +67,7 @@ struct Podcast: Decodable {
     description = try container.wrapper(key: .description) ?? ""
     title = try container.wrapper(key: .title) ?? ""
     publisher = try container.wrapper(key: .publisher) ?? ""
-    itunesID = try container.wrapper(key: .itunesID) ?? -1
+    iTunesID = try container.wrapper(key: .iTunesID) ?? -1
     language = try container.wrapper(key: .language) ?? ""
     country = try container.wrapper(key: .country) ?? ""
     id = try container.wrapper(key: .id) ?? ""
@@ -88,13 +92,45 @@ struct Podcast: Decodable {
     rss = URL(string: rssStr)
   }
   
+  init(cdPodcast: CDPodcast) {
+    self.totalEpisodes = Int(cdPodcast.totalEpisodes)
+    self.description = cdPodcast.desc ?? ""
+    self.title = cdPodcast.title ?? ""
+    self.publisher = cdPodcast.publisher ?? ""
+    self.iTunesID = Int(cdPodcast.iTunesID)
+    self.language = cdPodcast.language ?? "en_US"
+    self.country = cdPodcast.country ?? "us"
+    self.id = cdPodcast.id ?? ""
+    self.isExplicit = cdPodcast.isExplicit
+    self.genreIDs = cdPodcast.genreIDs ?? [Int]()
+    self.latestPublishDate = Int(cdPodcast.latestPublishDate)
+    self.nextPublishDate = Int(cdPodcast.nextPublishDate)
+    self.earliestPublishDate = Int(cdPodcast.earliestPublishDate)
+    self.imageURL = URL(string: cdPodcast.imageURL ?? "")
+    self.thumbnailURL = URL(string: cdPodcast.thumbnailURL ?? "")
+    self.website = URL(string: cdPodcast.websiteURLString ?? "")
+    self.notesURL = URL(string: cdPodcast.notesURLString ?? "")
+    self.rss = URL(string: cdPodcast.rssURLString ?? "")
+    
+    if let imgData = cdPodcast.image as Data? {
+      self.image = UIImage(data: imgData)
+    }
+    
+    if let thumbData = cdPodcast.thumbnail as Data? {
+      self.thumbnail = UIImage(data: thumbData)
+    }
+    
+    self.episodes = [Episode]()
+
+  }
+  
 }
 
 struct Episode: Decodable {
   let title: String
   let id: String
   let description: String
-  let pubishDate: Int // milliseconds since 1/1/70
+  let publishDate: Int // milliseconds since 1/1/70
   let length: Int
   let isExplicit: Bool
   let maybeInvalidAudio: Bool
@@ -108,9 +144,7 @@ struct Episode: Decodable {
   var thumbnail: UIImage?
   var image: UIImage?
   var playedTime: Int?
-  
-  // load on demand only
-//  var savedAudioURL:
+  var savedAudioURL: Data?
   
   enum CodingKeys: String, CodingKey {
     case title
@@ -119,7 +153,7 @@ struct Episode: Decodable {
     case thumbnailURL = "thumbnail"
     case imageURL = "image"
     case audioURL = "audio"
-    case pubishDate = "pub_date_ms"
+    case publishDate = "pub_date_ms"
     case length = "audio_length"
     case isExplicit = "explicit_content"
     case maybeInvalidAudio = "maybe_audio_invalid"
@@ -131,7 +165,7 @@ struct Episode: Decodable {
      title = try container.wrapper(key: .title) ?? ""
      id = try container.wrapper(key: .id) ?? ""
      description = try container.wrapper(key: .description) ?? ""
-     pubishDate = try container.wrapper(key: .pubishDate) ?? 0
+     publishDate = try container.wrapper(key: .publishDate) ?? 0
      length = try container.wrapper(key: .length) ?? 0
      isExplicit = try container.wrapper(key: .isExplicit) ?? true
      maybeInvalidAudio = try container.wrapper(key: .maybeInvalidAudio) ?? true

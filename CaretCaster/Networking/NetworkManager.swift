@@ -19,17 +19,29 @@ enum ParsingType: Int {
   case genre
   case genres
   case bestOf
+  case podcasts
 }
 
 enum CCError: Error {
   case dataFailure
 }
 
-struct Networking {
+class NetworkManager {
+  
+  static let shared = NetworkManager()
+  
+  private var urlComponents: URLComponents = {
+    var urlComps = URLComponents()
+    urlComps.scheme = "https"
+    urlComps.host = "listen-api.listennotes.com"
+    urlComps.path = "/api/v2"
+    return urlComps
+  }()
   
   struct Path {
     static let genres = "/genres"
     static let bestOf = "/best_podcasts"
+    static let podcasts = "/podcasts"
   }
   
   struct QueryKey {
@@ -37,15 +49,10 @@ struct Networking {
     static let page = "page"
     static let region = "region"
     static let safeMode = "safe_mode"
+    static let podcastIDs = "ids"
   }
   
-  private var urlComponents = URLComponents()
-  
-  init() {
-    urlComponents.scheme = "https"
-    urlComponents.host = "listen-api.listennotes.com"
-    urlComponents.path = "/api/v2"
-  }
+  private init() { }
   
   func generateGenresURL() -> URL? {
     var base = urlComponents
@@ -64,6 +71,15 @@ struct Networking {
     return base.url
   }
   
+  func generatePodcastsURL(podcastIDs: [String]) -> URL? {
+    var base = urlComponents
+    base.path += Path.podcasts
+    let podcastsString = podcastIDs.joined(separator: ",")
+    let podcasts = URLQueryItem(name: QueryKey.podcastIDs, value: podcastsString)
+    base.queryItems = [podcasts]
+    return base.url
+  }
+  
   func parse<T>(data: Data, modelType: ParsingType) -> T? {
     let decoder = JSONDecoder()
     var model: T?
@@ -78,6 +94,10 @@ struct Networking {
       }
     case .bestOf:
       if let m = try? decoder.decode(BestOfGenre.self, from: data) {
+        model = m as? T
+      }
+    case .podcasts:
+      if let m = try? decoder.decode(Podcasts.self, from: data) {
         model = m as? T
       }
     }

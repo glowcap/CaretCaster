@@ -10,8 +10,6 @@ import UIKit
 
 class OnboardGenreViewController: UIViewController {
   
-  let networking = Networking()
-  
   var allGenres = [Genre]()
   var selectedGenres = [Genre]() {
     willSet {
@@ -60,13 +58,13 @@ class OnboardGenreViewController: UIViewController {
         self.tableView.reloadData()
       }
     } else {
-      guard let request = networking.generateGenresURL() else { return }
-      networking.fire(request: request) { [weak self] data, error in
+      guard let request = NetworkManager.shared.generateGenresURL() else { return }
+      NetworkManager.shared.fire(request: request) { [weak self] data, error in
         if let d = data {
-          guard let genres: Genres = self?.networking.parse(data: d, modelType: ParsingType.genres) else { return }
+          guard let genres: Genres = NetworkManager.shared.parse(data: d, modelType: ParsingType.genres) else { return }
           DispatchQueue.main.async {
             for genre in genres.genres {
-              self?.saveGenreToCD(genre)
+              PersistanceManager.shared.saveGenreToCD(genre)
             }
             self?.allGenres = genres.genres.sorted()
             self?.hideSpinnerView()
@@ -86,14 +84,6 @@ class OnboardGenreViewController: UIViewController {
     return allGenres
   }
   
-  private func saveGenreToCD(_ genre: Genre) {
-    let g = CDGenre(context: PersistanceManager.shared.context)
-    g.id = Int16(genre.id)
-    g.parentID = Int32(genre.parentID)
-    g.name = genre.name
-    PersistanceManager.shared.save()
-  }
-  
   private func setUpTableView() {
     tableView.delegate = self
     tableView.dataSource = self
@@ -108,7 +98,6 @@ class OnboardGenreViewController: UIViewController {
   @objc func nextTapped() {
     let subVC = OnboardSubscribeViewController()
     subVC.selectedGenres = selectedGenres
-    subVC.networking = networking
     navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     navigationController?.show(subVC, sender: self)
   }

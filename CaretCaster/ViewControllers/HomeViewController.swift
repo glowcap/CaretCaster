@@ -31,27 +31,18 @@ class HomeViewController: UIViewController {
     
     let local = Locale.current
     print(local)
-    
-    if let pdcst = DesignMocks.podcast {
-      recentlyAddedPodcasts = [pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst]
-      myPodcasts = [pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst]
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    if myPodcasts.count == 0 {
+      let cdPodcasts = PersistanceManager.shared.fetchAll(CDPodcast.self)
+      DispatchQueue.main.async {
+        guard cdPodcasts.count > 0 else { return }
+        self.myPodcasts = cdPodcasts.compactMap { Podcast(cdPodcast: $0) }
+        self.collectionView.reloadSections([2])
+      }
     }
-    
-    //    let networking = Networking()
-    
-    //    if let request = networking.generateBestOfURL(genreId: 138, region: "us", isSafeMode: false) {
-    //      networking.fire(request: request) { data, error in
-    //        guard error == nil else { return }
-    //        guard let data = data,
-    //              let bestOf: BestOfGenre = networking.parse(data: data, modelType: ParsingType.bestOf)
-    //         else { return }
-    //        print(bestOf.name)
-    //        print(bestOf.total)
-    //        guard bestOf.podcasts.count > 0 else { return }
-    //        print(bestOf.podcasts[0].title)
-    //      }
-    //    }
-    
   }
   
   private func configureSettingsBarButton() {
@@ -88,7 +79,8 @@ extension HomeViewController: UICollectionViewDataSource {
   }
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return section == 2 ? myPodcasts.count : 1
+    let numberOfItems = section == 2 ? myPodcasts.count : 1
+    return numberOfItems
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -97,17 +89,14 @@ extension HomeViewController: UICollectionViewDataSource {
     case 0:
       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ContinueListeningCell.id, for: indexPath) as? ContinueListeningCell
         else { return UICollectionViewCell() }
-      if let pdcst = DesignMocks.podcast {
+      if let pdcst = recentlyPlayedPodcast {
         cell.configure(podcast: pdcst)
       }
       return cell
     case 1:
       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentlyAddedCollectionCell.id, for: indexPath) as? RecentlyAddedCollectionCell
         else { return UICollectionViewCell() }
-      if let pdcst = DesignMocks.podcast {
-        let podcasts = [pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst, pdcst]
-        cell.configure(podcasts: podcasts)
-      }
+      cell.configure(podcasts: recentlyAddedPodcasts)
       return cell
     default:
       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCastCell.id, for: indexPath) as? MyCastCell
@@ -133,7 +122,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     let fullWidth = UIScreen.main.bounds.width
     switch indexPath.section {
     case 0:
-      if let pdcst = DesignMocks.podcast {
+      if let pdcst = recentlyPlayedPodcast {
         let imageAndPadding = CGFloat(60 + 20)
         let estDescFrame = estimatedFrameFor(text: pdcst.description, width: fullWidth - 32, fontSize: 12, fontWeight: .regular)
         return CGSize(width: fullWidth - 32, height: estDescFrame.height + imageAndPadding)
@@ -161,6 +150,9 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+    if section == 0 && recentlyPlayedPodcast == nil {
+      return CGSize.zero
+    }
     return CGSize(width: UIScreen.main.bounds.width, height: 24)
   }
   

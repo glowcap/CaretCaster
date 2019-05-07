@@ -21,6 +21,8 @@ final class CCTabBarController: UITabBarController {
   let mainButton = UIButton()
   let mainBtnSize = CGFloat(UIScreen.main.bounds.width * 0.18)
   
+  var currentlyPlayingPodcast: Podcast?
+  
   var podView = PodView()
   
   var buttonDelegate: CCTabButtonDelegate?
@@ -32,10 +34,10 @@ final class CCTabBarController: UITabBarController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    configureMainButton()
-    layoutComponentViews()
     
-    if let podcast = DesignMocks.podcast {
+    if let podcast = currentlyPlayingPodcast {
+      configureMainButton()
+      layoutComponentViews()
       podView.configure(for: podcast)
       if !isPlaying {
         animateOutPodView()
