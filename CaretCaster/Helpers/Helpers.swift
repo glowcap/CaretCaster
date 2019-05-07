@@ -26,6 +26,7 @@ enum UserDefaultKey: String {
 }
 
 let screenWidth = UIScreen.main.bounds.width
+let screenHeight = UIScreen.main.bounds.height
 
 func estimatedFrameFor(text: String, width: CGFloat, fontSize: CGFloat, fontWeight: UIFont.Weight) -> CGRect {
   let height = CGFloat(1000)
@@ -42,45 +43,6 @@ func parse<T: Decodable>(jsonFile: String, modelType: T.Type) -> T? {
   let data = try? Data(contentsOf: url)
   let object = try? JSONDecoder().decode(T.self, from: data ?? Data())
   return object
-}
-
-struct WrapperType {
-  static let wtInt = -1
-  static let wtString = ""
-  static let wtBool = false
-}
-
-extension KeyedDecodingContainer {
-  
-  public func wrapper<T: Decodable>(key: K, ofType: T? = nil) throws -> T? {
-    if let value = try? decodeIfPresent(T.self, forKey: key) {
-      return value
-    }
-    return nil
-  }
-  
-}
-
-let imageCache = NSCache<AnyObject, AnyObject>()
-extension UIImageView {
-  
-  func load(url: URL) {
-    if let cachedImage = imageCache.object(forKey: url as AnyObject) as? UIImage {
-      self.image = cachedImage
-      return
-    }
-    
-    DispatchQueue.global().async { [weak self] in
-      guard let data = try? Data(contentsOf: url),
-            let image = UIImage(data: data)
-        else { return }
-      DispatchQueue.main.async {
-        imageCache.setObject(image, forKey: url as AnyObject)
-        self?.image = image
-      }
-    }
-  }
-  
 }
 
 final class NewPodsAlertLabel: UILabel {

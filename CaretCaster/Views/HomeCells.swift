@@ -218,8 +218,11 @@ class MyCastCell: UICollectionViewCell {
     clipsToBounds = true
     layoutUIComponents()
     titleLabel.text = podcast.title
-    guard let imgURL = podcast.imageURL else { return }
-    imageView.load(url: imgURL)
+    if let img = podcast.image {
+      imageView.image = img
+    } else if let imgURL = podcast.imageURL {
+      imageView.load(url: imgURL)
+    }
     alertLabel.text = String(describing: podcast.totalEpisodes) // totalEpisodes is temp
   }
   
