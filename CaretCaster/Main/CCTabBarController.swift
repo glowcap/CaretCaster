@@ -46,7 +46,7 @@ final class CCTabBarController: UITabBarController {
   }
   
   private func configureMainButton() {
-    mainButton.backgroundColor = ThemeColors.stem
+    mainButton.backgroundColor = ThemeColor.stem
     mainButton.layer.cornerRadius = mainBtnSize / 2
     mainButton.clipsToBounds = true
     mainButton.addTarget(self, action: #selector(tapped), for: .touchUpInside)

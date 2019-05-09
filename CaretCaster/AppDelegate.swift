@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   static func configuredCCTabBarController() -> CCTabBarController {
-    UINavigationBar.appearance().barTintColor = ThemeColors.caret
+    UINavigationBar.appearance().barTintColor = ThemeColor.caret
     UINavigationBar.appearance().tintColor = .white
     UINavigationBar.appearance().isOpaque = false
     

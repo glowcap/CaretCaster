@@ -167,18 +167,18 @@ extension OnboardGenreViewController: UITableViewDelegate, UITableViewDataSource
     if indexPath.section == 0 {
       let cell = tableView.dequeueReusableCell(withIdentifier: selectedCellID, for: indexPath)
       cell.textLabel?.text = selectedGenres[indexPath.row].name
-      cell.textLabel?.textColor = ThemeColors.mainText
+      cell.textLabel?.textColor = ThemeColor.mainText
       return cell
     }
     if indexPath.section == 1 {
       let cell = tableView.dequeueReusableCell(withIdentifier: genreCellID, for: indexPath)
       cell.textLabel?.text = allGenres[indexPath.row].name
-      cell.textLabel?.textColor = ThemeColors.mainText
+      cell.textLabel?.textColor = ThemeColor.mainText
       if selectedGenres.contains(allGenres[indexPath.row]) {
-        cell.textLabel?.textColor = ThemeColors.subText
+        cell.textLabel?.textColor = ThemeColor.subText
         cell.accessoryType = .checkmark
       } else {
-        cell.textLabel?.textColor = ThemeColors.mainText
+        cell.textLabel?.textColor = ThemeColor.mainText
         cell.accessoryType = .none
       }
       return cell

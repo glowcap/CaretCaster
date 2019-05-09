@@ -8,11 +8,12 @@
 
 import UIKit
 
-struct ThemeColors {
-  static let mainText = #colorLiteral(red: 0.1764705882, green: 0.1764705882, blue: 0.1764705882, alpha: 1)  // #2D2D2D
-  static let subText =  #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1)  // #727272
-  static let caret = #colorLiteral(red: 0.9725490196, green: 0.5529411765, blue: 0.2862745098, alpha: 1)  // #F88D49
+struct ThemeColor {
+  static let mainText = #colorLiteral(red: 0.1215686275, green: 0.1215686275, blue: 0.1215686275, alpha: 1)  // #1F1F1F
+  static let subText =  #colorLiteral(red: 0.5960784314, green: 0.5960784314, blue: 0.5960784314, alpha: 1)  // #989898
+  static let caret = #colorLiteral(red: 0.9176470588, green: 0.5294117647, blue: 0, alpha: 1)  // #EA8700
   static let stem = #colorLiteral(red: 0.5333333333, green: 0.7176470588, blue: 0.05882352941, alpha: 1)  // #88B70F
+  static let baseBackground = #colorLiteral(red: 0.2117647059, green: 0.2117647059, blue: 0.2117647059, alpha: 1) // #363636
 }
 
 enum UserDefaultKey: String {

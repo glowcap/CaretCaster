@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A2B24BE2284D42E00B7285B /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2B24BD2284D42E00B7285B /* HomeHeaderView.swift */; };
 		4A37250A22660A8700ED9D97 /* HomeCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A37250922660A8700ED9D97 /* HomeCells.swift */; };
 		4A3B1AF622541A5A00C7A8EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1AF522541A5A00C7A8EE /* AppDelegate.swift */; };
 		4A3B1AF822541A5A00C7A8EE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1AF722541A5A00C7A8EE /* HomeViewController.swift */; };
 		4A3B1AFE22541A5A00C7A8EE /* CaretCaster.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1AFC22541A5A00C7A8EE /* CaretCaster.xcdatamodeld */; };
 		4A3B1B0022541A5C00C7A8EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A3B1AFF22541A5C00C7A8EE /* Assets.xcassets */; };
 		4A3B1B0322541A5C00C7A8EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A3B1B0122541A5C00C7A8EE /* LaunchScreen.storyboard */; };
-		4A3B1B0E22541A5C00C7A8EE /* CaretCasterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1B0D22541A5C00C7A8EE /* CaretCasterTests.swift */; };
+		4A3B1B0E22541A5C00C7A8EE /* OnboardLaunchVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1B0D22541A5C00C7A8EE /* OnboardLaunchVCTests.swift */; };
 		4A3B1B192254201B00C7A8EE /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1B182254201B00C7A8EE /* Secret.swift */; };
 		4A3B1B1B225455B300C7A8EE /* ListenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1B1A225455B300C7A8EE /* ListenModels.swift */; };
 		4A3B1B1D22556FFA00C7A8EE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1B1C22556FFA00C7A8EE /* Helpers.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A2B24BD2284D42E00B7285B /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		4A37250922660A8700ED9D97 /* HomeCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCells.swift; sourceTree = "<group>"; };
 		4A3B1AF222541A5A00C7A8EE /* CaretCaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaretCaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3B1AF522541A5A00C7A8EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,7 +58,7 @@
 		4A3B1B0222541A5C00C7A8EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A3B1B0422541A5C00C7A8EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A3B1B0922541A5C00C7A8EE /* CaretCasterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaretCasterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A3B1B0D22541A5C00C7A8EE /* CaretCasterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretCasterTests.swift; sourceTree = "<group>"; };
+		4A3B1B0D22541A5C00C7A8EE /* OnboardLaunchVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardLaunchVCTests.swift; sourceTree = "<group>"; };
 		4A3B1B0F22541A5C00C7A8EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A3B1B182254201B00C7A8EE /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		4A3B1B1A225455B300C7A8EE /* ListenModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenModels.swift; sourceTree = "<group>"; };
@@ -138,7 +140,7 @@
 		4A3B1B0C22541A5C00C7A8EE /* CaretCasterTests */ = {
 			isa = PBXGroup;
 			children = (
-				4A3B1B0D22541A5C00C7A8EE /* CaretCasterTests.swift */,
+				4A3B1B0D22541A5C00C7A8EE /* OnboardLaunchVCTests.swift */,
 				4A3B1B0F22541A5C00C7A8EE /* Info.plist */,
 			);
 			path = CaretCasterTests;
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				4A37250922660A8700ED9D97 /* HomeCells.swift */,
+				4A2B24BD2284D42E00B7285B /* HomeHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				4A5DAEB9227A6BAD00C80FDA /* CDGenre+CoreDataClass.swift in Sources */,
 				4AE7DAB8225A51DF008DF19D /* ListenSearchModels.swift in Sources */,
 				4A5DAEBC227DE6EA00C80FDA /* Extensions.swift in Sources */,
+				4A2B24BE2284D42E00B7285B /* HomeHeaderView.swift in Sources */,
 				4A3B1B1B225455B300C7A8EE /* ListenModels.swift in Sources */,
 				4AE7DAC122621BA2008DF19D /* PodView.swift in Sources */,
 				4A5DAEB6227A68F500C80FDA /* PersistanceManager.swift in Sources */,
@@ -380,7 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A3B1B0E22541A5C00C7A8EE /* CaretCasterTests.swift in Sources */,
+				4A3B1B0E22541A5C00C7A8EE /* OnboardLaunchVCTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,12 +533,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NT4ZPH7Z6M;
 				INFOPLIST_FILE = CaretCaster/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = daymein.gregorio.CaretCaster;
+				PRODUCT_BUNDLE_IDENTIFIER = com.daymein.gregorio.CaretCaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -548,12 +552,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NT4ZPH7Z6M;
 				INFOPLIST_FILE = CaretCaster/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = daymein.gregorio.CaretCaster;
+				PRODUCT_BUNDLE_IDENTIFIER = com.daymein.gregorio.CaretCaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -565,8 +569,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NT4ZPH7Z6M;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CaretCasterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -575,6 +580,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = daymein.gregorio.CaretCasterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CaretCaster.app/CaretCaster";
@@ -586,8 +592,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NT4ZPH7Z6M;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CaretCasterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -596,6 +603,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = daymein.gregorio.CaretCasterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CaretCaster.app/CaretCaster";

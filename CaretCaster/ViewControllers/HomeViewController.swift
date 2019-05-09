@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
     layout.minimumLineSpacing = 16
     layout.scrollDirection = .vertical
     let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-    cv.backgroundColor = .white
+    cv.backgroundColor = ThemeColor.baseBackground
     return cv
   }()
   
@@ -163,11 +163,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         let headerTitle: String
         switch indexPath.section {
         case 0:
-          headerTitle = "Continue Listening"
+          headerTitle = "continue listening"
         case 1:
-          headerTitle = "Recently Added"
+          headerTitle = "new episodes"
         default:
-          headerTitle = "My Podcasts"
+          headerTitle = "my podcasts"
         }
         reusableView.headerTitle = headerTitle
         return reusableView

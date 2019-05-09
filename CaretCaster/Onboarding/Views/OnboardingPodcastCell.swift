@@ -21,7 +21,7 @@ class OnboardingPodcastCell: UICollectionViewCell {
   
   override var isSelected: Bool {
     willSet {
-      layer.borderColor = newValue ? ThemeColors.caret.cgColor: UIColor.clear.cgColor
+      layer.borderColor = newValue ? ThemeColor.caret.cgColor: UIColor.clear.cgColor
       layer.borderWidth = newValue ? 3 : 0
     }
   }

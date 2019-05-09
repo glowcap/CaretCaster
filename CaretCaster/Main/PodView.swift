@@ -24,7 +24,7 @@ final class PodView: UIView {
   
   var titleLabel: UILabel = {
     let lbl = UILabel()
-    lbl.textColor = ThemeColors.mainText
+    lbl.textColor = ThemeColor.mainText
     lbl.font = UIFont.systemFont(ofSize: 16, weight: .bold)
     lbl.lineBreakMode = .byWordWrapping
     lbl.numberOfLines = 2
@@ -33,15 +33,15 @@ final class PodView: UIView {
   
   var subtitleLabel: UILabel = {
     let lbl = UILabel()
-    lbl.textColor = ThemeColors.subText
+    lbl.textColor = ThemeColor.subText
     lbl.font = UIFont.systemFont(ofSize: 12, weight: .light)
     return lbl
   }()
   
   var progressView: UIProgressView = {
     let pV = UIProgressView()
-    pV.progressTintColor = ThemeColors.caret
-    pV.trackTintColor = ThemeColors.mainText
+    pV.progressTintColor = ThemeColor.caret
+    pV.trackTintColor = ThemeColor.mainText
     pV.progress = 0.5
     return pV
   }()

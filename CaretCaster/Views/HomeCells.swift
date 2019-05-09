@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class ContinueListeningCell: UICollectionViewCell {
   
   let imageView: UIImageView = {
@@ -26,20 +24,20 @@ class ContinueListeningCell: UICollectionViewCell {
     lbl.font = UIFont.systemFont(ofSize: 16, weight: .bold)
     lbl.lineBreakMode = .byWordWrapping
     lbl.numberOfLines = 2
-    lbl.textColor = ThemeColors.mainText
+    lbl.textColor = ThemeColor.mainText
     return lbl
   }()
   
   let timeRemainingLabel: UILabel = {
     let lbl = UILabel()
-    lbl.textColor = ThemeColors.subText
+    lbl.textColor = ThemeColor.subText
     lbl.font = UIFont.systemFont(ofSize: 12, weight: .light)
     return lbl
   }()
   
   let descriptionLabel: UILabel = {
     let lbl = UILabel()
-    lbl.textColor = ThemeColors.mainText
+    lbl.textColor = ThemeColor.mainText
     lbl.font = UIFont.systemFont(ofSize: 12)
     lbl.lineBreakMode = .byWordWrapping
     lbl.numberOfLines = 0
@@ -193,7 +191,7 @@ class MyCastCell: UICollectionViewCell {
   private let titleLabel: UILabel = {
     let lbl = UILabel()
     lbl.font = UIFont.systemFont(ofSize: 12, weight: .regular)
-    lbl.textColor = ThemeColors.mainText
+    lbl.textColor = ThemeColor.mainText
     return lbl
   }()
   
@@ -245,36 +243,6 @@ class MyCastCell: UICollectionViewCell {
   private func layoutAlertLabel() {
     addSubview(alertLabel)
     alertLabel.setAnchors(top: topAnchor, right: rightAnchor, paddingTop: -2, paddingRight: -2)
-  }
-  
-}
-
-class HomeHeaderView: UICollectionReusableView {
-  
-  static let id = "HomeHeaderView"
-  
-  var headerTitle: String? {
-    didSet {
-      label.text = headerTitle ?? ""
-    }
-  }
-  
-  private var label: UILabel = {
-    let lbl = UILabel()
-    lbl.font = UIFont.systemFont(ofSize: 12, weight: .medium)
-    lbl.textColor = ThemeColors.mainText
-    return lbl
-  }()
-  
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-    addSubview(label)
-    label.setAnchors(top: topAnchor, left: leftAnchor, bottom: bottomAnchor,
-                     right: rightAnchor, paddingLeft: 16, paddingRight: 16)
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
   }
   
 }

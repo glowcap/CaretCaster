@@ -10,7 +10,7 @@ import UIKit
 
 class OnboardLaunchViewController: UIViewController {
   
-  let headerText = "Welcome to\n\nCaret Cast\n\nThe best way to enjoy your favorite podcasts on the go!"
+  let headerText = "Welcome to\n\nCaret Caster\n\nThe best way to enjoy your favorite podcasts on the go!"
   
   var headerLabel: UILabel = {
     let lbl = UILabel()
@@ -32,7 +32,7 @@ class OnboardLaunchViewController: UIViewController {
     btn.titleLabel?.font = UIFont.systemFont(ofSize: 24, weight: .bold)
     btn.setTitle("Let's get started", for: .normal)
     btn.setTitleColor(.white, for: .normal)
-    btn.backgroundColor = ThemeColors.mainText
+    btn.backgroundColor = ThemeColor.mainText
     btn.layer.cornerRadius = 8
     btn.clipsToBounds = true
     return btn
@@ -52,12 +52,12 @@ class OnboardLaunchViewController: UIViewController {
     let paragraphStyle = NSMutableParagraphStyle()
     paragraphStyle.alignment = .center
     let rText = NSString(string: text)
-    let range = rText.range(of: "Caret Cast")
+    let range = rText.range(of: "Caret Caster")
     let attributedString = NSMutableAttributedString(string: text,
                                                      attributes: [.paragraphStyle: paragraphStyle,
                                                                   .font: UIFont.systemFont(ofSize: 16),
-                                                                  .foregroundColor: ThemeColors.mainText])
-    attributedString.addAttributes([.foregroundColor: ThemeColors.caret, .font: UIFont.systemFont(ofSize: 32, weight: .semibold)],
+                                                                  .foregroundColor: ThemeColor.mainText])
+    attributedString.addAttributes([.foregroundColor: ThemeColor.caret, .font: UIFont.systemFont(ofSize: 32, weight: .semibold)],
                                    range: range)
     return attributedString
   }
