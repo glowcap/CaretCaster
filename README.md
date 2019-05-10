@@ -1,4 +1,4 @@
-# Caret Caster
+# Caret Caster [![Build Status](https://travis-ci.com/glowcap/CaretCaster.svg?branch=master)](https://travis-ci.com/glowcap/CaretCaster)
 ## 🎙 Podcast application for iOS 🎧
 
 ![HomeScreen](https://user-images.githubusercontent.com/10408147/57421391-3141a500-71d1-11e9-9ce9-79fa4c1c8255.png)
@@ -20,6 +20,7 @@ Things to do... (there's just so much)
 - [x] Core Data Models
 - [x] Core Data <-> Decodable
 - [x] Layout HomeVC
+- [x] Add Travis CI support
 - [ ] Audio downloads & saves
 - [ ] AVFoundation
 - [ ] Create Tab Icons
