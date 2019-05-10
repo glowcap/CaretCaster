@@ -1,0 +1,8 @@
+language: objective-c
+osx_image: xcode10.2
+xcode_workspace: CaretCaster.xcodeproj
+xcode_scheme: CaretCaster
+xcode_destination: platform=iOS Simulator,OS=12.1,name=iPhone X
+#before_install:
+#- pod install
+## pod added later
