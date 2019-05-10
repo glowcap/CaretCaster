@@ -191,7 +191,7 @@ class MyCastCell: UICollectionViewCell {
   private let titleLabel: UILabel = {
     let lbl = UILabel()
     lbl.font = UIFont.systemFont(ofSize: 12, weight: .regular)
-    lbl.textColor = ThemeColor.mainText
+    lbl.textColor = .white
     return lbl
   }()
   
@@ -204,15 +204,13 @@ class MyCastCell: UICollectionViewCell {
     lbl.layer.borderColor = UIColor.white.cgColor
     lbl.layer.borderWidth = 2
     lbl.layer.cornerRadius = 4
-    lbl.layer.maskedCorners = [.layerMinXMaxYCorner]
     lbl.clipsToBounds = true
     return lbl
   }()
   
   func configure(podcast: Podcast) {
-    backgroundColor = .white
+    backgroundColor = .clear
     layer.cornerRadius = 4
-    layer.maskedCorners = [.layerMaxXMinYCorner]
     clipsToBounds = true
     layoutUIComponents()
     titleLabel.text = podcast.title
@@ -224,10 +222,25 @@ class MyCastCell: UICollectionViewCell {
     alertLabel.text = String(describing: podcast.totalEpisodes) // totalEpisodes is temp
   }
   
+  /// needed for supporting iOS 10... which is needed for TravisCI builds
+  private func roundCorner(of view: UIView, cornerRadius: CGFloat) {
+    if #available(iOS 11, *) {
+      layer.maskedCorners = [.layerMaxXMinYCorner]
+    } else {
+      let maskPath = UIBezierPath(roundedRect: view.bounds,
+                                  byRoundingCorners: [.topRight],
+                                  cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+      let shape = CAShapeLayer()
+      shape.path = maskPath.cgPath
+      view.layer.mask = shape
+    }
+  }
+  
   private func layoutUIComponents() {
     layoutImageView()
     layoutTitleLabel()
     layoutAlertLabel()
+    roundCorner(of: alertLabel, cornerRadius: 4)
   }
   
   private func layoutImageView() {

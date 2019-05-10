@@ -44,13 +44,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let nav1 = UINavigationController(rootViewController: first)
     nav1.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named:"IconNav1"), tag: 1)
     nav1.title = "Home"
+    if #available(iOS 11.0, *) {
+      nav1.tabBarItem.largeContentSizeImage = UIImage(named: "Home")
+    }
     
     let second = UIViewController()
     let nav2 = UINavigationController(rootViewController: second)
     second.view.backgroundColor = .white
     nav2.viewControllers = [second]
     nav2.tabBarItem = UITabBarItem(title: "Casts", image: UIImage(named:"castsTabIcon"), tag: 2)
-    nav2.tabBarItem.largeContentSizeImage = UIImage(named:"castsTabIconADA")
+    if #available(iOS 11.0, *) {
+      nav2.tabBarItem.largeContentSizeImage = UIImage(named:"castsTabIconADA")
+    }
     
     let third = UIViewController()
     third.view.backgroundColor = .white
@@ -61,7 +66,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let nav4 = UINavigationController(rootViewController: fourth)
     fourth.view.backgroundColor = .white
     nav4.viewControllers = [fourth]
-    nav4.tabBarItem = UITabBarItem(title: "Browse", image: UIImage(named:"IconNav4"), tag: 4)
+     if #available(iOS 11.0, *) {
+      nav4.tabBarItem = UITabBarItem(title: "Browse", image: UIImage(named:"IconNav4"), tag: 4)
+    }
     
     let fifth = UIViewController()
     let nav5 = UINavigationController(rootViewController: fifth)
