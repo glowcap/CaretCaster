@@ -197,18 +197,3 @@ private extension OnboardGenreViewController {
   }
 }
 
-final class SpinnerViewController: UIViewController {
-  var spinner = UIActivityIndicatorView(style: .whiteLarge)
-  
-  override func loadView() {
-    view = UIView()
-    view.backgroundColor = UIColor(white: 0, alpha: 0.7)
-    
-    spinner.startAnimating()
-    
-    view.addSubview(spinner)
-    spinner.translatesAutoresizingMaskIntoConstraints = false
-    spinner.setAnchorsCenterToParent()
-  }
-}
-
