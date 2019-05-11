@@ -10,7 +10,6 @@
 import Foundation
 import CoreData
 
-
 extension CDEpisode {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CDEpisode> {

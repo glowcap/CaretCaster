@@ -186,7 +186,7 @@ struct Genres: Decodable {
   var genres: [Genre]  
 }
 
-struct Genre: Decodable  {
+struct Genre: Decodable {
   
   var id: Int
   var parentID: Int
@@ -215,7 +215,7 @@ struct Genre: Decodable  {
 
 extension Genre: Equatable, Comparable {
   
-  static func ==(lhs: Genre, rhs: Genre) -> Bool {
+  static func == (lhs: Genre, rhs: Genre) -> Bool {
     return lhs.name == rhs.name
   }
   
@@ -265,5 +265,3 @@ struct BestOfGenre: Decodable {
   }
   
 }
-
-

@@ -35,10 +35,10 @@ class HomeViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    if myPodcasts.count == 0 {
+    if myPodcasts.isEmpty {
       let cdPodcasts = PersistanceManager.shared.fetchAll(CDPodcast.self)
       DispatchQueue.main.async {
-        guard cdPodcasts.count > 0 else { return }
+        guard !cdPodcasts.isEmpty else { return }
         self.myPodcasts = cdPodcasts.compactMap { Podcast(cdPodcast: $0) }
         self.collectionView.reloadSections([2])
       }

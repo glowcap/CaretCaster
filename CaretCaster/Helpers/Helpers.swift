@@ -61,22 +61,3 @@ final class NewPodsAlertLabel: UILabel {
     return CGSize(width: width, height: height)
   }
 }
-
-// MARK: - CI
-struct Environment {
-  
-  static var codeCovKey: String = Environment.variable(named: "CODECOV_TOKEN") ?? CI.codeCovKey
-  
-  static func variable(named name: String) -> String? {
-    let processInfo = ProcessInfo.processInfo
-    guard let value = processInfo.environment[name] else {
-      return nil
-    }
-    return value
-  }
-  
-}
-
-struct CI {
-  static var codeCovKey = "$(CODECOV_TOKEN)"
-}

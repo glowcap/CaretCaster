@@ -69,7 +69,6 @@ final class PodView: UIView {
   
 }
 
-
 // MARK: - layout views
 extension PodView {
   
