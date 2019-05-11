@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
   
-  
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     
     let userDefaults = UserDefaults.standard
@@ -42,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let first = HomeViewController()
     let nav1 = UINavigationController(rootViewController: first)
-    nav1.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named:"IconNav1"), tag: 1)
+    nav1.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "IconNav1"), tag: 1)
     nav1.title = "Home"
     if #available(iOS 11.0, *) {
       nav1.tabBarItem.largeContentSizeImage = UIImage(named: "Home")
@@ -52,9 +51,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let nav2 = UINavigationController(rootViewController: second)
     second.view.backgroundColor = .white
     nav2.viewControllers = [second]
-    nav2.tabBarItem = UITabBarItem(title: "Casts", image: UIImage(named:"castsTabIcon"), tag: 2)
+    nav2.tabBarItem = UITabBarItem(title: "Casts", image: UIImage(named: "castsTabIcon"), tag: 2)
     if #available(iOS 11.0, *) {
-      nav2.tabBarItem.largeContentSizeImage = UIImage(named:"castsTabIconADA")
+      nav2.tabBarItem.largeContentSizeImage = UIImage(named: "castsTabIconADA")
     }
     
     let third = UIViewController()
@@ -67,14 +66,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     fourth.view.backgroundColor = .white
     nav4.viewControllers = [fourth]
      if #available(iOS 11.0, *) {
-      nav4.tabBarItem = UITabBarItem(title: "Browse", image: UIImage(named:"IconNav4"), tag: 4)
+      nav4.tabBarItem = UITabBarItem(title: "Browse", image: UIImage(named: "IconNav4"), tag: 4)
     }
     
     let fifth = UIViewController()
     let nav5 = UINavigationController(rootViewController: fifth)
     fifth.view.backgroundColor = .white
     nav5.viewControllers = [fifth]
-    nav5.tabBarItem = UITabBarItem(title: "TBA", image: UIImage(named:"IconNav5"), tag: 5)
+    nav5.tabBarItem = UITabBarItem(title: "TBA", image: UIImage(named: "IconNav5"), tag: 5)
     
     let tabBarVC = CCTabBarController()
     tabBarVC.viewControllers = [nav1, nav2, third, nav4, nav5]
@@ -98,4 +97,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
 }
-

@@ -51,7 +51,7 @@ class OnboardGenreViewController: UIViewController {
   private func fetchAllGenres() {
     showSpinnerView()
     let cdGenres = loadedAllGenresFromCD()
-    if cdGenres.count > 0 {
+    if !cdGenres.isEmpty {
       DispatchQueue.main.async {
         self.hideSpinnerView()
         self.allGenres = cdGenres
@@ -78,7 +78,7 @@ class OnboardGenreViewController: UIViewController {
   private func loadedAllGenresFromCD() -> [Genre] {
     var allGenres = [Genre]()
     let cdGenres = PersistanceManager.shared.fetchAll(CDGenre.self)
-    if cdGenres.count > 0 {
+    if !cdGenres.isEmpty {
       allGenres = cdGenres.compactMap({Genre(cdGenre: $0)}).sorted()
     }
     return allGenres
@@ -196,4 +196,3 @@ private extension OnboardGenreViewController {
     tableView.setAnchors(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
   }
 }
-

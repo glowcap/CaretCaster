@@ -15,7 +15,7 @@ class OnboardingGenreVCTests: XCTestCase {
   
   override func setUp() {
     sut = OnboardGenreViewController()
-    let _ = sut?.view
+    _ = sut?.view
     guard let genres = getModelFromJSON(model: Genres.self, fileName: "Genres") else { return XCTFail("Couldn't parse Genres") }
     sut?.allGenres = genres.genres
     sut?.tableView.reloadData()

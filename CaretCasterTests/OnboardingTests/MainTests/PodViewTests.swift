@@ -29,5 +29,4 @@ class PodViewTests: XCTestCase {
     return XCTAssertEqual(expected, result, "Expected doesn't match result")
   }
 
-  
 }

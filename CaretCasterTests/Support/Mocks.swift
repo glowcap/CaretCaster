@@ -19,9 +19,7 @@ func getModelFromJSON<T: Decodable>(model: T.Type, fileName: String) -> T? {
   return jsonObj
 }
 
-
 class Mocks {
-  
   
 }
 
