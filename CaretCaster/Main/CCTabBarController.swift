@@ -25,7 +25,7 @@ final class CCTabBarController: UITabBarController {
   
   var podView = PodView()
   
-  var buttonDelegate: CCTabButtonDelegate?
+  weak var buttonDelegate: CCTabButtonDelegate?
   var isPlaying = false {
     willSet {
       print("isPlaying: \(newValue)")
@@ -82,9 +82,9 @@ final class CCTabBarController: UITabBarController {
     UIView.animate(withDuration: 0.2, delay: 0.0, options: [], animations: { [weak self] in
       self?.podView.transform = scaledAndTranslatedTransform
       self?.podView.layer.cornerRadius = (self?.podView.fullSize.height ?? 100) / 2
-    }) { [weak self] _ in
-      self?.mainButton.isEnabled = true
-    }
+      }, completion: { [weak self] _ in
+        self?.mainButton.isEnabled = true
+    })
     UIView.animate(withDuration: 0.1, delay: 0.22, options: [], animations: { [weak self] in
       self?.podView.alpha = 0
       }, completion: nil)

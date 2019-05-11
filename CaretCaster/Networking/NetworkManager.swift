@@ -104,7 +104,7 @@ class NetworkManager {
     return model
   }
   
-  func fire(request: URL, completion: @escaping (Data?, Error?)->()) {
+  func fire(request: URL, completion: @escaping (Data?, Error?) -> Void) {
     let session = URLSession.shared
     var request = URLRequest(url: request)
     request.setValue(Keys.listenAPI.value, forHTTPHeaderField: Keys.listenAPI.key)
@@ -124,4 +124,3 @@ class NetworkManager {
   }
   
 }
-

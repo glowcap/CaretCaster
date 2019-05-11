@@ -74,7 +74,7 @@ class OnboardSubscribeViewController: UIViewController {
   }
   
   @objc func nextTapped() {
-    if subscribedPodcasts.count > 0 {
+    if !subscribedPodcasts.isEmpty {
       for pod in subscribedPodcasts {
         PersistanceManager.shared.savePodcastToCD(pod)
       }

@@ -10,7 +10,6 @@
 import Foundation
 import CoreData
 
-
 extension CDPodcast {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CDPodcast> {
