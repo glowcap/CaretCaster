@@ -1,7 +1,9 @@
 # Caret Caster [![Build Status](https://travis-ci.com/glowcap/CaretCaster.svg?branch=master)](https://travis-ci.com/glowcap/CaretCaster)
 ## 🎙 Podcast application for iOS 🎧
 
-![HomeScreen](https://user-images.githubusercontent.com/10408147/57421391-3141a500-71d1-11e9-9ce9-79fa4c1c8255.png)
+![HomeScreen](https://user-images.githubusercontent.com/10408147/57421391-3141a500-71d1-11e9-9ce9-79fa4c1c8255.png)[![codecov](https://codecov.io/gh/glowcap/CaretCaster/branch/master/graph/badge.svg)](https://codecov.io/gh/glowcap/CaretCaster)
+
+
 
 ### The best podcast app that's not yet available
 
