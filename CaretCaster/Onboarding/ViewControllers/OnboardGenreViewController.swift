@@ -59,7 +59,7 @@ class OnboardGenreViewController: UIViewController {
       }
     } else {
       guard let request = NetworkManager.shared.generateGenresURL() else { return }
-      NetworkManager.shared.fire(request: request) { [weak self] data, error in
+      NetworkManager.shared.fire(request: request) { [weak self] data, repsonse, error in
         if let d = data {
           guard let genres: Genres = NetworkManager.shared.parse(data: d, modelType: ParsingType.genres) else { return }
           DispatchQueue.main.async {

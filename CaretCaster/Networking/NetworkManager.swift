@@ -26,11 +26,19 @@ enum CCError: Error {
   case dataFailure
 }
 
-class NetworkManager {
+protocol NetworkManagerEngine {
+  typealias Handler = (Data?, URLResponse?, Error?) -> Void
   
-  static let shared = NetworkManager()
+  func fire(request: URL, completion: @escaping Handler)
+  func parse<T>(data: Data, modelType: ParsingType) -> T?
+  func generatePodcastsURL(podcastIDs: [String]) -> URL?
+  func generateBestOfURL(genreId: Int, page: Int, region: String, isSafeMode: Bool) -> URL?
+  func generateGenresURL() -> URL?
+}
+
+class NetworkManager: NetworkManagerEngine {
   
-  private var urlComponents: URLComponents = {
+  var urlComponents: URLComponents = {
     var urlComps = URLComponents()
     urlComps.scheme = "https"
     urlComps.host = "listen-api.listennotes.com"
@@ -51,7 +59,9 @@ class NetworkManager {
     static let safeMode = "safe_mode"
     static let podcastIDs = "ids"
   }
-  
+
+  static let shared = NetworkManager()
+
   private init() { }
   
   func generateGenresURL() -> URL? {
@@ -59,7 +69,7 @@ class NetworkManager {
     base.path += Path.genres
     return base.url
   }
-  
+
   func generateBestOfURL(genreId: Int, page: Int = 0, region: String = "us", isSafeMode: Bool) -> URL? {
     var base = urlComponents
     base.path += Path.bestOf
@@ -70,7 +80,7 @@ class NetworkManager {
     base.queryItems = [genID, pg, rgn, sfmd]
     return base.url
   }
-  
+
   func generatePodcastsURL(podcastIDs: [String]) -> URL? {
     var base = urlComponents
     base.path += Path.podcasts
@@ -79,14 +89,14 @@ class NetworkManager {
     base.queryItems = [podcasts]
     return base.url
   }
-  
+
   func parse<T>(data: Data, modelType: ParsingType) -> T? {
     let decoder = JSONDecoder()
     var model: T?
     switch modelType {
     case .genre:
       if let m = try? decoder.decode(Genre.self, from: data) {
-              model = m as? T
+        model = m as? T
       }
     case .genres:
       if let m = try? decoder.decode(Genres.self, from: data) {
@@ -103,24 +113,24 @@ class NetworkManager {
     }
     return model
   }
-  
-  func fire(request: URL, completion: @escaping (Data?, Error?) -> Void) {
+
+  func fire(request: URL, completion: @escaping Handler) {
     let session = URLSession.shared
     var request = URLRequest(url: request)
     request.setValue(Keys.listenAPI.value, forHTTPHeaderField: Keys.listenAPI.key)
-    
+
     session.dataTask(with: request) { data, response, error in
       guard error == nil else {
         print(error.debugDescription)
         return
       }
       if let data = data {
-        completion(data, nil)
+        completion(data, nil, nil)
       } else {
-        completion(nil, CCError.dataFailure)
+        completion(nil, nil, CCError.dataFailure)
       }
-      
-    }.resume()
+
+      }.resume()
   }
   
 }
