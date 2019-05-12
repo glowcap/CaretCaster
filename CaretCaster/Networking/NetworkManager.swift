@@ -19,6 +19,7 @@ enum ParsingType: Int {
   case genre
   case genres
   case bestOf
+  case podcast
   case podcasts
 }
 
@@ -30,10 +31,6 @@ protocol NetworkManagerEngine {
   typealias Handler = (Data?, URLResponse?, Error?) -> Void
   
   func fire(request: URL, completion: @escaping Handler)
-  func parse<T>(data: Data, modelType: ParsingType) -> T?
-  func generatePodcastsURL(podcastIDs: [String]) -> URL?
-  func generateBestOfURL(genreId: Int, page: Int, region: String, isSafeMode: Bool) -> URL?
-  func generateGenresURL() -> URL?
 }
 
 class NetworkManager: NetworkManagerEngine {
@@ -104,6 +101,10 @@ class NetworkManager: NetworkManagerEngine {
       }
     case .bestOf:
       if let m = try? decoder.decode(BestOfGenre.self, from: data) {
+        model = m as? T
+      }
+    case .podcast:
+      if let m = try? decoder.decode(Podcast.self, from: data) {
         model = m as? T
       }
     case .podcasts:
