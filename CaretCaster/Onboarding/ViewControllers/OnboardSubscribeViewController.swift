@@ -145,5 +145,4 @@ extension OnboardSubscribeViewController: UICollectionViewDelegateFlowLayout {
     fatalError("Unknown Type")
   }
   
-  
 }

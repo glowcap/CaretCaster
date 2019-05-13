@@ -247,7 +247,7 @@ struct BestOfGenre: Decodable {
     case hasNext = "has_next"
     case nextPgNum = "next_page_number"
     case total
-    case podcasts = "channels"
+    case podcasts
   }
   
   init(from decoder: Decoder) throws {
