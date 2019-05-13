@@ -41,6 +41,12 @@ class OnboardingSubscribeVCTests: XCTestCase {
     XCTAssert(mockSut.viewControllerToPresented is UITabBarController, "incorrect viewController shown")
   }
   
+  func test_numberOfSections() {
+    let expected = 1
+    let result = sut?.collectionView.numberOfSections
+    XCTAssertEqual(expected, result, "incorrect section count")
+  }
+  
 }
 
 class MockOnboardSubscribeViewController: OnboardSubscribeViewController {
