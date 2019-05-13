@@ -48,7 +48,7 @@ class OnboardSubscribeViewController: UIViewController {
     showSpinnerView()
     for genre in genres {
       guard let url = NetworkManager.shared.generateBestOfURL(genreId: genre.id, isSafeMode: false) else { return }
-      NetworkManager.shared.fire(request: url) { [weak self] data, error in
+      NetworkManager.shared.fire(request: url) { [weak self] data, response, error in
         guard let d = data, let bestOf: BestOfGenre = NetworkManager.shared.parse(data: d, modelType: .bestOf) else { return }
         DispatchQueue.main.async {
           let top10 = Array(bestOf.podcasts.prefix(9))
@@ -144,6 +144,5 @@ extension OnboardSubscribeViewController: UICollectionViewDelegateFlowLayout {
     }
     fatalError("Unknown Type")
   }
-  
   
 }

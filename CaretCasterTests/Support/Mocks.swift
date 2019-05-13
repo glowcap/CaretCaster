@@ -26,9 +26,16 @@ class Mocks {
 final class MockNavigationController: UINavigationController {
   
   var shownViewController: UIViewController?
+  var viewControllerToPresented: UIViewController?
   
   override func show(_ vc: UIViewController, sender: Any?) {
     shownViewController = vc
     super.show(vc, sender: sender)
   }
+  
+  override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
+    viewControllerToPresented = viewControllerToPresent
+    super.present(viewControllerToPresent, animated: flag, completion: completion)
+  }
+  
 }

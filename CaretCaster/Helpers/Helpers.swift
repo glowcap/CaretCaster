@@ -39,13 +39,6 @@ func estimatedFrameFor(text: String, width: CGFloat, fontSize: CGFloat, fontWeig
                                              attributes: attributes, context: nil)
 }
 
-func parse<T: Decodable>(jsonFile: String, modelType: T.Type) -> T? {
-  guard let url = Bundle.main.url(forResource: jsonFile, withExtension: "json") else { return nil }
-  let data = try? Data(contentsOf: url)
-  let object = try? JSONDecoder().decode(T.self, from: data ?? Data())
-  return object
-}
-
 final class NewPodsAlertLabel: UILabel {
   
   let padding = UIEdgeInsets(top: 2, left: 4, bottom: 2, right: 4)
