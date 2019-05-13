@@ -7,8 +7,7 @@ before_install:
   - openssl aes-256-cbc -K $encrypted_a657021b4dd6_key -iv $encrypted_a657021b4dd6_iv -in Secret.swift.enc -out CaretCaster/Helpers/Secret.swift -d
 
 script: 
-  - xcodebuild build-for-testing -project CaretCaster.xcodeproj  -scheme CaretCaster -destination 'platform=iOS Simulator,name=iPhone X,OS=10.2' 
-  - xcodebuild test-without-building -project CaretCaster.xcodeproj -scheme CaretCaster -destination 'platform=iOS Simulator,name=iPhone X,OS=10.2'
+  - xcodebuild -scheme CaretCaster -project CaretCaster.xcodeproj -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=10.2' build test
 
 after_success: 
   - bash <(curl -s https://codecov.io/bash)
