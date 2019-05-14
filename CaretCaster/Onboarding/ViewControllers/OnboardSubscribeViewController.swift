@@ -51,14 +51,17 @@ class OnboardSubscribeViewController: UIViewController {
       NetworkManager.shared.fire(request: url) { [weak self] data, response, error in
         guard let d = data, let bestOf: BestOfGenre = NetworkManager.shared.parse(data: d, modelType: .bestOf) else { return }
         DispatchQueue.main.async {
-          let top10 = Array(bestOf.podcasts.prefix(9))
-          print("top10 count: ", top10.count)
-          self?.bestOfPodcasts.append(top10)
-          self?.collectionView.reloadData()
+          self?.setCollectionViewData(with: bestOf)
           self?.hideSpinnerView()
         }
       }
     }
+  }
+  
+  func setCollectionViewData(with bestOf: BestOfGenre) {
+    let top10 = Array(bestOf.podcasts.prefix(9))
+    bestOfPodcasts.append(top10)
+    collectionView.reloadData()
   }
   
   private func configureCollectionView() {
@@ -142,7 +145,7 @@ extension OnboardSubscribeViewController: UICollectionViewDelegateFlowLayout {
         return reusableView
       }
     }
-    fatalError("Unknown Type")
+    return UICollectionReusableView(frame: CGRect.zero)
   }
   
 }
