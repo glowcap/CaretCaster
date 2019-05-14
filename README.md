@@ -23,6 +23,7 @@ Things to do... (there's just so much)
 - [x] Core Data <-> Decodable
 - [x] Layout HomeVC
 - [x] Add Travis CI support
+- [x] Code coverage hook
 - [ ] Audio downloads & saves
 - [ ] AVFoundation
 - [ ] Create Tab Icons
