@@ -18,6 +18,7 @@
 		4A2B24D82289180A00B7285B /* OnboardingSubscribeVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2B24D72289180A00B7285B /* OnboardingSubscribeVCTests.swift */; };
 		4A2B24DA22891B3200B7285B /* BestPodcasts.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A2B24D922891B3200B7285B /* BestPodcasts.json */; };
 		4A2B24DC2289241400B7285B /* Genre.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A2B24DB2289241400B7285B /* Genre.json */; };
+		4A2B24DE228B740200B7285B /* CCTabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2B24DD228B740200B7285B /* CCTabBarControllerTests.swift */; };
 		4A37250A22660A8700ED9D97 /* HomeCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A37250922660A8700ED9D97 /* HomeCells.swift */; };
 		4A3B1AF622541A5A00C7A8EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1AF522541A5A00C7A8EE /* AppDelegate.swift */; };
 		4A3B1AF822541A5A00C7A8EE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3B1AF722541A5A00C7A8EE /* HomeViewController.swift */; };
@@ -69,6 +70,7 @@
 		4A2B24D72289180A00B7285B /* OnboardingSubscribeVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSubscribeVCTests.swift; sourceTree = "<group>"; };
 		4A2B24D922891B3200B7285B /* BestPodcasts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BestPodcasts.json; sourceTree = "<group>"; };
 		4A2B24DB2289241400B7285B /* Genre.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Genre.json; sourceTree = "<group>"; };
+		4A2B24DD228B740200B7285B /* CCTabBarControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCTabBarControllerTests.swift; sourceTree = "<group>"; };
 		4A37250922660A8700ED9D97 /* HomeCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCells.swift; sourceTree = "<group>"; };
 		4A3B1AF222541A5A00C7A8EE /* CaretCaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaretCaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A3B1AF522541A5A00C7A8EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				4A2B24C422871A3700B7285B /* PodViewTests.swift */,
+				4A2B24DD228B740200B7285B /* CCTabBarControllerTests.swift */,
 			);
 			path = MainTests;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A2B24D3228878E000B7285B /* NetworkManagerTests.swift in Sources */,
+				4A2B24DE228B740200B7285B /* CCTabBarControllerTests.swift in Sources */,
 				4A2B24D62288881B00B7285B /* HelperTests.swift in Sources */,
 				4A2B24C522871A3700B7285B /* PodViewTests.swift in Sources */,
 				4A3B1B0E22541A5C00C7A8EE /* OnboardLaunchVCTests.swift in Sources */,
