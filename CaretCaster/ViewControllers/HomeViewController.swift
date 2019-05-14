@@ -31,6 +31,10 @@ class HomeViewController: UIViewController {
     
     let local = Locale.current
     print(local)
+    
+    // check for and download recent episodes on background thread
+    // show completion % for downloading episodes
+    // save recentEpisodeDownloadDate to UserDefaults
   }
   
   override func viewWillAppear(_ animated: Bool) {
