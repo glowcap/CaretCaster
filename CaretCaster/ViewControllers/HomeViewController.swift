@@ -32,6 +32,19 @@ class HomeViewController: UIViewController {
     let local = Locale.current
     print(local)
     
+    
+    let date = Date().timeIntervalSince1970
+    print(date)
+    
+  
+    DispatchQueue.global(qos: .background).async {
+      // get current date as ms since 1970
+      // for each podcast get latest episode
+      // update podcast from server
+      // compare old latest ep to new
+      // if new latest exists, list in new episodes
+    }
+    
     // check for and download recent episodes on background thread
     // show completion % for downloading episodes
     // save recentEpisodeDownloadDate to UserDefaults
