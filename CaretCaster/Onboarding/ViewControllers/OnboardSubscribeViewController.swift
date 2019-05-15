@@ -82,7 +82,7 @@ class OnboardSubscribeViewController: UIViewController {
         PersistanceManager.shared.savePodcastToCD(pod)
       }
     }
-    UserDefaults.standard.set(true, forKey: UserDefaultKey.returningUser.value())
+    UserDefaults.standard.set(true, forKey: UserDefaultKey.returningUser.rawValue)
     let tabController = AppDelegate.configuredCCTabBarController()
     self.present(tabController, animated: true)
   }

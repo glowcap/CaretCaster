@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var rootViewController: UIViewController
     
-    if userDefaults.bool(forKey: UserDefaultKey.returningUser.value()) {
+    if userDefaults.bool(forKey: UserDefaultKey.returningUser.rawValue) {
       rootViewController = AppDelegate.configuredCCTabBarController()
     } else {
       rootViewController = OnboardLaunchViewController()

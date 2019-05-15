@@ -18,12 +18,6 @@ struct ThemeColor {
 
 enum UserDefaultKey: String {
   case returningUser
-  
-  func value() -> String {
-    switch self {
-    case .returningUser: return "returningUser"
-    }
-  }
 }
 
 let screenWidth = UIScreen.main.bounds.width

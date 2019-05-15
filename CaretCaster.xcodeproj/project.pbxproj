@@ -127,7 +127,6 @@
 			children = (
 				4A2B24D4228878E700B7285B /* NetworkingTests */,
 				4A2B24C0228719B900B7285B /* ViewControllers */,
-				4A2B24C322871A0500B7285B /* MainTests */,
 			);
 			path = OnboardingTests;
 			sourceTree = "<group>";
@@ -212,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				4A2B24C822871B6B00B7285B /* Support */,
+				4A2B24C322871A0500B7285B /* MainTests */,
 				4A2B24BF228719A700B7285B /* OnboardingTests */,
 				4A3B1B0F22541A5C00C7A8EE /* Info.plist */,
 				4A2B24D52288881B00B7285B /* HelperTests.swift */,
